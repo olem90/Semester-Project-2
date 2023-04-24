@@ -1,0 +1,27 @@
+{
+  "name": "semester-project2-ole-rognan",
+  "version": "1.0.0",
+  "description": "An Auction Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olem90/Semester-Project-2.git"
+  },
+  "keywords": [
+    "auction",
+    "Online",
+    "shopping"
+  ],
+  "author": "Ole Marius Rognan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olem90/Semester-Project-2/issues"
+  },
+  "homepage": "https://github.com/olem90/Semester-Project-2#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
