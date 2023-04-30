@@ -46,6 +46,74 @@
   color: #fff !important;
 }
 
+#listingsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: auto;
+  grid-gap: 30px 20px;
+}
+
+@media (width < 1000px) {
+  #listingsContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px 30px;
+  }
+}
+@media (width < 800px) {
+  #listingsContainer {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px 30px;
+  }
+}
+@media (width < 580px) {
+  #listingsContainer {
+    grid-template-columns: 1fr;
+    grid-gap: 10px 30px;
+    width: 90%;
+  }
+  #listingsContainer img {
+    height: 220px;
+    object-fit: cover;
+  }
+  #listingsContainer .image-background {
+    background-color: #e9e9e9;
+    height: 220px;
+    width: 100%;
+  }
+  #listingsContainer .all-listings {
+    margin-inline: 10px;
+  }
+}
+.all-listings {
+  box-shadow: 1px 1px 1px rgb(224, 223, 224);
+  min-width: 100%;
+  height: auto;
+}
+
+.listings-img {
+  width: 100%;
+  padding-inline: 20px;
+  height: 300px;
+}
+
+.listings-description {
+  max-width: 100%;
+}
+
+.listing-title {
+  color: rgb(136, 9, 119);
+}
+
+.listing-info {
+  background-color: #ffffff;
+}
+
+.image-background {
+  background-color: #e9e9e9;
+  height: 300px;
+  width: 100%;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors

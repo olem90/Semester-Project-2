@@ -2,12 +2,15 @@
     background-color: rgb(24, 3, 82);
     width: 250px; 
 }
+
 .nav-item { 
     margin-top: 70px;
 }
+
 .navbar-nav {
     margin-right: 110px;
 }
+
 .loginBtn {
     background-color: rgb(17, 7, 156);
     border-radius: 10px;
@@ -16,33 +19,99 @@
     top: 20px;;
     padding: 2px;
 }
+
 .login-link {
     padding: 5px 8px;
     text-decoration: none;
 }
+
 .searchBar {
     position: absolute;
     left: 34%;
     right: 30%;
     top: 20px;
     max-width: 600px;
-    
 }
+
 .SearchBtn {
     background-color:  rgb(255, 255, 255);
     border-radius: 0 20px 20px 0;
     margin-left: -18px;
     padding: 8px;
 }
+
 .SearchBtn:hover {
     background-color: rgb(24, 3, 82);;
     color: #fff !important;
 }
 
+#listingsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: auto;
+    grid-gap: 30px 20px;
+}
+@media (width < 1000px) {
+    #listingsContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px 30px;
+    }
+}
+@media (width < 800px) {
+    #listingsContainer {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px 30px;
+    }
+}
+@media (width < 580px) {
+    #listingsContainer {
+        grid-template-columns: 1fr;
+        grid-gap:10px 30px;
+        width: 90%;
 
+        img{
+            height: 220px;
+            object-fit: cover;
+        }
+        .image-background {
+            background-color: #e9e9e9;
+            height: 220px;
+            width: 100%;
+        }
+        .all-listings {
+            margin-inline: 10px;
+        }
 
+    }
 
+}
+.all-listings {
+    box-shadow: 1px 1px 1px rgb(224, 223, 224);
+    min-width: 100%;
+    height: auto;
+}
+.listings-img {
+    width: 100%;
+    padding-inline: 20px;
+    height: 300px;
+}
 
+.listings-description {
+    max-width: 100%;
+}
 
+.listing-title {
+    color: rgb(136, 9, 119);
+    
+}
+.listing-info {
+    background-color: #ffffff;
+    
+}
+.image-background {
+    background-color: #e9e9e9;
+    height: 300px;
+    width: 100%;
+}
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

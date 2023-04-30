@@ -14,4 +14,4 @@ export function loginFormListener() {
     }
 };
 
-console.log("dwaddwaddwawda")
+console.log("dwaddwaddwawda");
