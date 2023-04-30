@@ -8,7 +8,7 @@ export function listingsTemplate(listingData) {
     const listingInfoContainer = document.createElement("div");
     const imageBackground = document.createElement("div");
     
-    tags.classList.add("fs-6", "text-wrap");
+    tags.classList.add("fs-6", "text-wrap", "listing-tags");
     listingCard.classList.add("listingCard", "w-100", "row");
     listingImage.classList.add("listings-img");
     title.classList.add("fs-6", "listing-title");
