@@ -53,27 +53,52 @@
   grid-gap: 30px 20px;
 }
 
-@media (width < 1000px) {
+@media (width < 1200px) {
   #listingsContainer {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px 30px;
+  }
+  #listingsContainer img {
+    height: 220px;
+    object-fit: cover;
+  }
+  #listingsContainer .image-background {
+    background-color: #bd1a1a;
+    height: 220px;
+    width: 100%;
+  }
+}
+@media (width < 1000px) {
+  #listingsContainer img {
+    height: 220px;
+  }
+  #listingsContainer .image-background {
+    background-color: #f5f5f5;
+    height: 220px;
+    width: 100%;
   }
 }
 @media (width < 800px) {
   #listingsContainer {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 30px 30px;
+    grid-gap: 30px;
+  }
+  #listingsContainer img {
+    height: 220px;
+  }
+  #listingsContainer .image-background {
+    background-color: #e9e9e9;
+    height: 220px;
+    width: 100%;
   }
 }
 @media (width < 580px) {
   #listingsContainer {
     grid-template-columns: 1fr;
-    grid-gap: 10px 30px;
-    width: 90%;
+    grid-gap: 30px;
   }
   #listingsContainer img {
     height: 220px;
-    object-fit: cover;
   }
   #listingsContainer .image-background {
     background-color: #e9e9e9;
@@ -81,7 +106,7 @@
     width: 100%;
   }
   #listingsContainer .all-listings {
-    margin-inline: 10px;
+    width: 90%;
   }
 }
 .all-listings {
@@ -117,6 +142,40 @@
 .listing-tags {
   width: 100%;
   word-wrap: break-word;
+}
+
+.accountContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.account-h1 {
+  width: 700px;
+}
+
+.accountImage {
+  width: 250px;
+  margin-right: 10px;
+}
+
+.profileInfoContainer .email {
+  white-space: nowrap;
+}
+.profileInfoContainer .accountDiv {
+  width: 600px;
+  border: 3px solid red;
+}
+
+#editProfile {
+  max-width: 600px;
+}
+#editProfile button {
+  height: 40px;
+}
+
+#createListing {
+  max-width: 660px;
 }
 
 /*!

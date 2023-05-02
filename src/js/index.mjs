@@ -1,7 +1,8 @@
 import * as storage from "./storage/storage.mjs";
 import * as listeners from "./handlers/index.mjs";
 import * as listingMethods from "./api/listings/index.mjs";
-import * as templates from "./templates/listing.mjs"
+import * as profileMethods from "./api/profiles/index.mjs";
+import * as templates from "./templates/index.mjs";
 
 const profileName = storage.load("profile");
 
@@ -13,9 +14,19 @@ if ( path === "/profile/register/register.html" ) {
 if ( path === "/profile/login/login.html" ) {
     listeners.loginFormListener();
 }
+if ( path === "/listing/create/createListing.html") {
+    listeners.createListingListener();
+ }
+ if ( path === "/profile/edit/edit.html") {
+    listeners.updateProfileListener();
+ }
 if( path === "/feed/listings.html" ) {
     homeListingsTemplates();
- };
+ }
+ if( path === "/profile/account.html" ) {
+    accountTemplate();
+ }
+ 
 
 async function homeListingsTemplates() {
     const listings = await listingMethods.getListings();
@@ -23,7 +34,14 @@ async function homeListingsTemplates() {
     templates.renderListingTemplates(listings, container);
 };
 
+async function accountTemplate() {
+    const profile = await profileMethods.getProfile(profileName.name);
+    const profileContainer = document.querySelector("#accountInfo");
+    templates.renderAccountTemplate(profile, profileContainer);
+
+    console.log(profile);
+};
 
 
-console.log(profileName);
+
 

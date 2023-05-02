@@ -1,25 +1,29 @@
 import { API_AUCTION_URL } from "../constants.mjs";
 import { fetchWithToken } from "../authFetch.mjs";
 
-const action = "/auction/profiles";
+const action = "/profiles";
+const method = "put";
 
-export async function getProfiles() {
-
-    const getProfilesURL = `${API_AUCTION_URL}${action}`
-    
-    const response = await fetchWithToken( getProfilesURL )
-
-    return await response.json();
-}
-
-export async function getProfile(name) {
-    if (!name) {
-        throw new Error("GET requires a name")
+export async function updateProfile(profileData) {
+    if ( !profileData.name ) {
+        throw new Error("Updates requires a name")
     }
 
-    const getProfileURL = `${API_AUCTION_URL}${action}/${name}`;
+    const updateProfileURL = `${API_AUCTION_URL}${action}/${profileData.name}/media`;
     
-    const response = await fetchWithToken( getProfileURL )
+    const response = await fetchWithToken( updateProfileURL, {
+        method,
+        body: JSON.stringify(profileData)
+    })
+    
+    function updateProfileResponse () {
+        if (response.ok) {
+            alert("Profile has been updated");
+        } else {
+            alert("Oooops, there seems like an error has occured. Try again");
+        }
+    } 
+    updateProfileResponse();
 
     return await response.json();
 }

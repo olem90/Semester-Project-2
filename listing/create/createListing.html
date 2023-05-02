@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/dist/css/main.css">
+    <script defer type="module" src="/src/js/index.mjs"></script>
     <title>BidBay | Create Listing</title>
 </head>
 <body>
@@ -39,5 +40,42 @@
             </div>
           </nav>
     </header>
+    <main>
+      <div class="container d-flex flex-column mt-5 mx-auto" id="createListingContainer ">
+                    
+        <form class="w-100 d-flex flex-column mx-auto" id="createListing">
+          <h1 class="mb-5">Create New Listing</h1>
+
+            <div class="form-group d-flex flex-column fs-5">
+                <label for="">Title</label>
+                <input class="form-control mb-2" type="text" name="title" id="title" required>
+            </div>
+
+            <div class="form-group d-flex flex-column fs-5">
+              <label for="">Description</label>
+              <textarea class="form-control mx-auto w-100 h-50" name="description" id="description" placeholder="Write a description.." required ></textarea>
+            </div>
+
+            <div class="form-group d-flex flex-column fs-5">
+              <label for="">Listing ends</label>
+              <input class="form-control mb-2" type="datetime-local" name="endsAt" id="endsAt" required>
+            </div>
+
+            <div class="form-group d-flex flex-column fs-5">
+              <label for="">Tags</label>
+              <input class="form-control mb-2" type="text" name="tags[]" id="tags">
+            </div>
+
+            <div class="form-group d-flex flex-column fs-5">
+              <label for="">Media</label>
+              <input class="form-control mb-2" type="url" name="media[]" placeholder="https://www.example.com/media" id="media">
+          
+                <button class="d-flex rounded-2 w-100 bg-primary border-0 mt-3 text-white py-1 fw-semibold justify-content-center align-items-center" id="listingBtn">
+                    Create Listing
+                </button>
+            </div>
+        </form>
+      </div>
+    </main>
 </body>
 </html>

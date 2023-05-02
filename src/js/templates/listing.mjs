@@ -1,4 +1,5 @@
 export function listingsTemplate(listingData) {
+    
     const listing = document.createElement("div");
     const title = document.createElement("strong");
     const description = document.createElement("p");
@@ -35,17 +36,10 @@ export function listingsTemplate(listingData) {
     listingInfoContainer.appendChild(title);
     listingInfoContainer.appendChild(description);
     
-   
-
     listingInfoContainer.appendChild(tags);
 
     return listing;
 }
-
-// export function renderListingTemplates(listingDataList, parent) {
-//      parent.append(...listingDataList.map(listingsTemplate))};
-
-
      export function renderListingTemplates(listingDataList, parent) {
         if (listingDataList && listingDataList.length > 0) {
             parent.append(...listingDataList.map(listingsTemplate));

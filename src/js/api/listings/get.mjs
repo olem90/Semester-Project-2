@@ -23,7 +23,5 @@ export async function getListing(id) {
     
     const response = await fetchWithToken( getListingURL );
 
-    
-
     return await response.json();
 };

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/dist/css/main.css">
+    <script defer type="module" src="/src/js/index.mjs"></script>
     <title>BidBay | Update Profile</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
                         <a class="nav-link text-light" href="/feed/index.html">Newly Listed</a>
                     </li>
                     <li class="nav-item ms-2 fs-5 text-center">
-                        <a class="thumbnail nav-link text-white" href="/profile/index.html">Account</a>
+                        <a class="thumbnail nav-link text-white" href="/profile/account.html">Account</a>
                     </li>
                     <li class="nav-item ms-2 fs-5 text-center">
                         <a class="nav-link text-white" href="/profile/register/index.html">hmmm</a>
@@ -39,5 +40,37 @@
             </div>
           </nav>
     </header>
+    <main>
+      <div class="home-page-container container d-flex flex-column ">
+        <div class="row d-flex justify-content-center">
+            <div class="col-container container col-6 d-flex w-75 mx-md-auto w-100">
+                <div class="form-and-post container d-flex flex-column mt-5 mx-auto">
+                    
+                    <form class="w-100 d-flex flex-column mx-auto mt-3 mt-md-5" id="editProfile">
+                      <h1 class="mb-5">Update Avatar</h1>
+                        <div class="form-group d-flex flex-column">
+                            <label for="">Name</label>
+                            <input class="form-control mb-2" type="text" disabled name="name">
+                        </div>
+
+                        <div class="form-group d-flex flex-column">
+                            <label for="">Email</label>
+                            <input class="form-control mb-2" type="email" disabled name="email" >
+                        </div>
+
+                        <div class="form-group d-flex flex-column">
+                            <label for="">Avatar</label>
+                            <input class="form-control mb-2" type="url" name="avatar">
+                        </div>
+
+                        <button class="d-flex rounded-2 w-100 bg-primary border-0 mt-3 text-white py-1 fw-semibold justify-content-center align-items-center" id="postBtn">
+                            Update Avatar
+                        </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

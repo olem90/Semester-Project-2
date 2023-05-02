@@ -1,2 +1,2 @@
-export * from "../templates/listing.mjs";
-export * from "../templates/profile.mjs";
+export * from "./listing.mjs";
+export * from "./account.mjs";
