@@ -23,7 +23,7 @@
                         <a class="nav-link text-light" href="/feed/index.html">Newly Listed</a>
                     </li>
                     <li class="nav-item ms-2 fs-5 text-center">
-                        <a class="thumbnail nav-link text-white" href="/profile/index.html">Account</a>
+                        <a class="thumbnail nav-link text-white" href="/profile/account.html">Account</a>
                     </li>
                     <li class="nav-item ms-2 fs-5 text-center">
                         <a class="nav-link text-white" href="/profile/register/index.html">hmmm</a>
@@ -34,7 +34,7 @@
                     <button class="SearchBtn text-dark border border-2" type="submit">Search</button>
                   </form>
                 <li class="loginBtn fs-5 text-center">
-                    <a class="login-link text-white fw-bold fs-6 d-flex" href="/profile/login/index.html">Login</a>
+                    <a class="login-link text-white fw-bold fs-6 d-flex" href="/profile/login/login.html">Login</a>
                 </li>
               </div>
             </div>
@@ -48,7 +48,7 @@
 
             <div class="form-group d-flex flex-column fs-5">
                 <label for="">Title</label>
-                <input class="form-control mb-2" type="text" name="title" id="title" required>
+                <input class="form-control mb-2" type="text" name="title" id="title" placeholder="Write a title.." required>
             </div>
 
             <div class="form-group d-flex flex-column fs-5">
@@ -63,14 +63,14 @@
 
             <div class="form-group d-flex flex-column fs-5">
               <label for="">Tags</label>
-              <input class="form-control mb-2" type="text" name="tags[]" id="tags">
+              <input class="form-control mb-2" type="text" name="tags[]" id="tags" placeholder="Separate tags with commas (e.g. smartphones, laptops, dresses)">
             </div>
 
             <div class="form-group d-flex flex-column fs-5">
-              <label for="">Media</label>
+              <label for="">Media (Url)</label>
               <input class="form-control mb-2" type="url" name="media[]" placeholder="https://www.example.com/media" id="media">
           
-                <button class="d-flex rounded-2 w-100 bg-primary border-0 mt-3 text-white py-1 fw-semibold justify-content-center align-items-center" id="listingBtn">
+                <button class="d-flex rounded-2 w-100 bg-primary border-0 mt-3 text-white py-2 fw-semibold justify-content-center align-items-center" id="listingBtn">
                     Create Listing
                 </button>
             </div>

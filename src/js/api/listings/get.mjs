@@ -10,14 +10,13 @@ export async function getListings() {
     const response = await fetchWithToken(getListingsURL);
 
     const listings = await response.json();
-    console.log(listings)
 
     return listings;
 };
 
 export async function getListing(id) {
     if (!id) {
-        throw new Error("GET requires a postID");
+        throw new Error("GET requires a listingID");
     }
     const getListingURL = `${API_AUCTION_URL}${action}/${id}`;
     

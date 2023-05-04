@@ -1,4 +1,4 @@
-import { getProfile, updateProfile } from "../api/profiles/index.mjs";
+import * as getApiData from "../api/profiles/index.mjs";
 
 import { load } from "../storage/storage.mjs";
 
@@ -13,7 +13,7 @@ export async function updateProfileListener() {
         const button = form.querySelector("button");
         button.disabled = true;
 
-        const profile = await getProfile(name);
+        const profile = await getApiData.getProfile(name);
         
         form.avatar.value = profile.avatar;
        
@@ -31,8 +31,8 @@ export async function updateProfileListener() {
             console.log(profile)
 
             //send to api
-            if (updateProfile) {
-                updateProfile(profile);
+            if (getApiData.updateProfile) {
+                getApiData.updateProfile(profile);
 
                 setTimeout(function routeHome() {
                     {

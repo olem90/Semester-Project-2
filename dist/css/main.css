@@ -13,7 +13,7 @@
 }
 
 .loginBtn {
-  background-color: rgb(17, 7, 156);
+  background-color: rgb(24, 100, 214);
   border-radius: 10px;
   position: absolute;
   right: 15%;
@@ -113,6 +113,7 @@
   box-shadow: 0px 0px 1px rgb(224, 223, 224);
   min-width: 100%;
   height: auto;
+  text-decoration: none;
 }
 
 .listings-img {
@@ -176,6 +177,56 @@
 
 #createListing {
   max-width: 660px;
+}
+
+.all-listings:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgb(224, 224, 224);
+}
+
+#specificListing {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+#specificListing .specificListingContainer {
+  display: flex;
+  width: 90%;
+}
+#specificListing .imageContainer {
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+#specificListing .specificListingImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#specificListing .specificListingInfo {
+  width: 60%;
+  margin-left: 40px;
+}
+#specificListing .currentPrice {
+  margin-top: 50px;
+}
+#specificListing .BidInput {
+  width: 100px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+#specificListing .timeNBids {
+  width: 70%;
+}
+#specificListing .bidButton {
+  background-color: rgb(24, 100, 214);
+  width: 70%;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 95px;
+  font-weight: 600;
 }
 
 /*!

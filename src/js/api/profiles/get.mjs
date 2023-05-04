@@ -21,5 +21,7 @@ export async function getProfile(name) {
     
     const response = await fetchWithToken( getProfileURL )
 
+    console.log(name)
+
     return await response.json();
 }
