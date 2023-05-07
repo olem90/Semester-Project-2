@@ -16,7 +16,7 @@ export function accountTemplate(accountData) {
     edit.innerText = "Edit";
     edit.href = "/profile/edit/edit.html" + `?id=${accountData.id}`;
     myListings.innerText = "My Listings";
-    myListings.href = "/profile/myListings/myListings.html";
+    myListings.href = "/profile/profileListings/profileListings.html";
 
     profileInfoContainer.classList.add("d-flex", "profileInfoContainer");
     accountImg.classList.add("accountImage", "my-2");

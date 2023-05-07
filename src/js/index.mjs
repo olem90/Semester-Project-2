@@ -11,29 +11,43 @@ const path = location.pathname;
 if ( path === "/profile/register/register.html" ) {
     listeners.registerFormListener();
 } 
+
 if ( path === "/profile/login/login.html" ) {
     listeners.loginFormListener();
 }
+
 if ( path === "/listing/create/createListing.html") {
     listeners.createListingListener();
- }
- if ( path === "/profile/edit/edit.html") {
+}
+
+if ( path === "/profile/edit/edit.html") {
     listeners.updateProfileListener();
- }
+}
+
+if ( path === "/listing/edit/editListing.html") {
+    listeners.updateListingListener();
+}
+
 if( path === "/feed/listings.html") {
     homeListingsTemplates();
- }
- if ( path === "/profile/myListings/myListings.html"){
-    myListingsTemplate();
- }
+}
 
- if( path === "/profile/account.html" ) {
+if ( path === "/profile/profileListings/profileListings.html"){
+    profileListingsTemplate();
+}
+
+if( path === "/profile/account.html" ) {
     accountTemplate();
- }
- if ( path === "/listing/specificListing.html") {
-    templates.specificListingTemplate();
- }
- 
+}
+
+if ( path === "/listing/specificListing.html") {
+    templates.specificListingTemplate() ;
+}
+
+if ( path === "/profile/profileListings/specificProfileListing.html") {
+    profileListingTemplate();
+}
+
 async function homeListingsTemplates() {
     const listings = await listingMethods.getListings();
     const container = document.querySelector("#listingsContainer");
@@ -46,17 +60,26 @@ async function accountTemplate() {
     templates.renderAccountTemplate(profile, profileContainer);
 };
 
-async function myListingsTemplate() {
+async function profileListingsTemplate() {
     const profileListings = await profileMethods.getProfilesListings();
-    const profileContainer = document.querySelector("#listingsContainer");
-    templates.renderListingTemplates(profileListings, profileContainer);
+    const profileContainer = document.querySelector("#profileListingsContainer");
+    templates.renderProfileListingTemplates(profileListings, profileContainer);
 };
 
-// async function specificListingTemplate(id) {
-//     const specificListing = await listingMethods.getListing(id);
-//     const specificListingContainer = document.querySelector("#specificListing");
-//     templates.renderCreateListingHTML(specificListing, specificListingContainer);
-// };
+async function profileListingTemplate() {
+    const profileListing = await profileMethods.getProfileListing(profileName.name);
+    const profileListingContainer = document.querySelector("#specificProfileListingsContainer");
+    templates.renderProfileListingTemplate(profileListing, profileListingContainer);
+};
+
+async function listingTemplate() {
+    const listing = await listingMethods.getListing();
+    const listingContainer = document.querySelector("#specificListing");
+    templates.renderProfileListingTemplate(listing, listingContainer);
+};
+
+
+
 
 
 
