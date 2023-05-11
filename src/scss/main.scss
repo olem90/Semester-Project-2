@@ -331,11 +331,24 @@
         width: fit-content;
         height: 40%;
         display: flex;
+        justify-content: space-between;
+        width: 70%;
         
         .editProfileListing {
             font-weight: bold;
             margin-top: auto;
             font-size: 18px;
+            margin-right: auto;
+        }
+        .deleteProfileListing {
+            font-weight: bold;
+            margin-top: auto;
+            font-size: 18px;
+            margin-left: auto;
+            
+        }
+        .editprofileListingBtn {
+            width: 80%;
         }
 
     }

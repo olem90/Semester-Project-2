@@ -30,6 +30,7 @@ if ( path === "/profile/edit/edit.html") {
 
 if ( path === "/listing/edit/editListing.html") {
     listeners.updateListingListener();
+    listeners.removeListingListener();
 }
 
 if( path === "/feed/listings.html") {

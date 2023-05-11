@@ -58,7 +58,7 @@ export function ProfileListingTemplate(listing) {
     title.innerText = profileListing.title;
     description.innerText = profileListing.description;
     imageBackground.classList.add("imageBackground", "d-flex")
-    editProfileListing.innerText = "Edit";
+    editProfileListing.innerText = "Edit Listing";
     editProfileListing.href = "/listing/edit/editListing.html" + `?id=${profileListing.id}`;
 
     const bids = profileListing.bids;
@@ -104,7 +104,7 @@ export function ProfileListingTemplate(listing) {
     listingInfoContainer.appendChild(editProfileListingContainer);
 
     editProfileListingContainer.appendChild(editProfileListing);
-
+    
     timeAndBidsContainer.appendChild(timeLeft);
     timeAndBidsContainer.appendChild(numberOfBids);
 

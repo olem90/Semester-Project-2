@@ -19,7 +19,7 @@ export async function removeListing(id) {
         if (response.ok) {
             alert("Listing has been deleted");          
         } else {
-            alert("You cannot delete other users listings");
+            alert("Ooops looks like something went wrong");
         }
     } ;
     
