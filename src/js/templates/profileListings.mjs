@@ -31,6 +31,7 @@ export function profileListingsTemplate(profileListingData) {
         img.classList.add("listings-img");
         img.src = profileListingData.media;
         img.alt = `Image from ${profileListingData.title}`;
+        img.loading = "lazy"; 
         imageBackground.appendChild(img);
     }
 

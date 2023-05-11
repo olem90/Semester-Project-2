@@ -99,8 +99,10 @@ export async function specificListingTemplate() {
   
     const now = new Date().getTime();
           const listingEnds = new Date(dateListingEnds);
-          const timeDiff = listingEnds - now;
-          const timeLeftListing = getTimeLeft(timeDiff);
+          const timeRemaining = listingEnds - now;
+          const timeLeftListing = getTimeLeft(timeRemaining);
+
+          console.log(timeRemaining)
       
       function getTimeLeft(timeDiff) {
           const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -108,6 +110,8 @@ export async function specificListingTemplate() {
       
           return `${days}d ${hours}h`;
       }
+      const auctionEnded = "Auction Ended";
+      
   
     const title = document.createElement("h1")
     const listingInfoContainer = document.querySelector("#listingInfoContainer");
@@ -145,8 +149,18 @@ export async function specificListingTemplate() {
     listingImg.classList.add("listingImg");
 
     //   bidButton.innerText = "Place Your Bid";
-    timeLeft.innerText =`Time Left: ${timeLeftListing} |`;
-    numberOfBids.innerText =  ` Bids: ${listingData._count.bids}`;
+    if (timeRemaining < 0) {
+        timeLeft.innerText = "Auction has ended " ;
+        timeLeft.classList.add("auction-ended");
+        numberOfBids.innerText =  `| Bids: ${listingData._count.bids}`;
+    } else {
+        timeLeft.innerText =`Time Left: ${timeLeftListing} |`;
+        numberOfBids.innerText =  ` Bids: ${listingData._count.bids}`;
+    }
+
+    console.log(timeLeftListing);
+   
+    
     title.innerText = listingData.title;
     description.innerText = listingData.description;
     //   makeYourBid.innerText = `Make Your Bid:`;
