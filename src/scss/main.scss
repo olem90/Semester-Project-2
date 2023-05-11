@@ -321,16 +321,26 @@
     }
     .profileListingInfoContainer {
         width: 80%;
-
-        
-       
+        box-sizing: border-box;
 
     }
     .timeAndBidsContainer {
         width: 70%;
     }
+    .editProfileListingContainer {
+        width: fit-content;
+        height: 40%;
+        display: flex;
+        
+        .editProfileListing {
+            font-weight: bold;
+            margin-top: auto;
+            font-size: 18px;
+        }
 
-    
+    }
+
+
     
 }
 /*

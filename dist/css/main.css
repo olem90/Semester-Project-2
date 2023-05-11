@@ -303,9 +303,20 @@
 }
 .singleProfileListingContainer .profileListingInfoContainer {
   width: 80%;
+  box-sizing: border-box;
 }
 .singleProfileListingContainer .timeAndBidsContainer {
   width: 70%;
+}
+.singleProfileListingContainer .editProfileListingContainer {
+  width: fit-content;
+  height: 40%;
+  display: flex;
+}
+.singleProfileListingContainer .editProfileListingContainer .editProfileListing {
+  font-weight: bold;
+  margin-top: auto;
+  font-size: 18px;
 }
 
 /*

@@ -1,4 +1,4 @@
-/*
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
@@ -39,17 +39,19 @@ export function ProfileListingTemplate(listing) {
     const minimumBidContainer = document.createElement("div");
     const MakeYourBidContainer = document.createElement("div");
     const listingImg = document.createElement("img");
+    const editProfileListingContainer = document.createElement("div");
     const editProfileListing = document.createElement("a");
 
     pageContainer.classList.add("singleProfileListingContainer", "d-flex", "flex-row", "mt-4");
     imageContainer.classList.add("profileListingImg-container", "d-flex", "flex-column", "justify-content-center");
     listingInfoContainer.classList.add("profileListingInfoContainer", "ms-3");
-    currrentPriceContainer.classList.add("mt-3");
-    timeAndBidsContainer.classList.add("timeAndBidsContainer" ,"border", "border-start-0", "border-end-0", "border-top-2", "border-bottom-2", "d-flex", "flex-row", "mt-2");
+    currrentPriceContainer.classList.add("mt-4");
+    timeAndBidsContainer.classList.add("timeAndBidsContainer" ,"border", "border-start-0", "border-end-0", "border-top-2", "border-bottom-2", "d-flex", "flex-row", "mt-5");
     numberOfBids.classList.add("ms-3");
     minimumBidContainer.classList.add("mt-3");
     MakeYourBidContainer.classList.add("mt-3");
-    editProfileListing.classList.add("editProfileListing", "me-0");
+    editProfileListing.classList.add("editProfileListing");
+    editProfileListingContainer.classList.add("editProfileListingContainer");
     
     timeLeft.innerText =`Time Left: ${timeLeftListing} |`;
     numberOfBids.innerText =  `Bids: ${profileListing._count.bids}`;
@@ -99,7 +101,9 @@ export function ProfileListingTemplate(listing) {
     listingInfoContainer.appendChild(timeAndBidsContainer);
     listingInfoContainer.appendChild(currrentPriceContainer);
     listingInfoContainer.appendChild(minimumBidContainer);
-    listingInfoContainer.appendChild(editProfileListing);
+    listingInfoContainer.appendChild(editProfileListingContainer);
+
+    editProfileListingContainer.appendChild(editProfileListing);
 
     timeAndBidsContainer.appendChild(timeLeft);
     timeAndBidsContainer.appendChild(numberOfBids);
@@ -112,4 +116,4 @@ export function ProfileListingTemplate(listing) {
 export function renderProfileListingTemplate(profileListingTemplateData, parent) {
     parent.append(ProfileListingTemplate(profileListingTemplateData))
     };
-    */
+  

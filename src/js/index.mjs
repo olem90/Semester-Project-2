@@ -49,9 +49,9 @@ if( path === "/profile/account.html" ) {
      console.log("I am listingTemplate");
 }
 
-// if ( path === "/profile/profileListings/specificProfileListing.html") {
-//     profileListingTemplate();
-// }
+if ( path === "/profile/profileListings/specificProfileListing.html") {
+    profileListingTemplate();
+}
 if ( path === "/listing/listing.html") {
         window.onload = () => {
        listeners.createBidListener();
@@ -76,11 +76,11 @@ async function profileListingsTemplate() {
     templates.renderProfileListingTemplates(profileListings, profileListingsContainer);
 };
 
-// async function profileListingTemplate() {
-//     const profileListing = await profileMethods.getProfileListing(profileName.name);
-//     const profileListingContainer = document.querySelector("#specificProfileListingsContainer");
-//     templates.renderProfileListingTemplate(profileListing, profileListingContainer);
-// };
+async function profileListingTemplate() {
+    const profileListing = await profileMethods.getProfileListing(profileName.name);
+    const profileListingContainer = document.querySelector("#specificProfileListingsContainer");
+    templates.renderProfileListingTemplate(profileListing, profileListingContainer);
+};
 
  async function listingTemplate() {
     const listing = await listingMethods.getListing(id);
