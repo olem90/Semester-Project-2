@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/dist/css/main.css">
     <script defer type="module" src="/src/js/index.mjs"></script>
-    <title>BidBay | Edit Listing</title>
+    <title>BidBay | Listing</title>
 </head>
 <body>
     <header class="d-flex justify-content-center">
         <nav class="navbar navbar-expand-lg bg-light text-light border border-bottom-5 w-100"> 
             <div class="container-fluid">
-              <a class="navbar-brand text-blue fs-2" href="">BidBay</a>
+              <a class="navbar-brand text-blue fs-2" href="/feed/listings.html">BidBay</a>
               <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Expand Navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -41,41 +41,47 @@
           </nav>
     </header>
     <main>
-      <div class="container d-flex flex-column mt-5 mx-auto" id="updateListingContainer ">
-                    
-        <form class="w-100 d-flex flex-column mx-auto" id="updateListing">
-          <h1 class="mb-5">Update Listing</h1>
+      <div class="container mt-4" id="listingContainer">
 
-            <div class="form-group d-flex flex-column fs-5">
-                <label for="">Title</label>
-                <input class="form-control mb-2" type="text" name="title" id="title" placeholder="Write a title.." required>
-            </div>
+        <div class="listingImgContainer" id="listingImgContainer">
+          <div class="listingImageBackground me-5" id="listingImageBackground">
+            
+          </div>
 
-            <div class="form-group d-flex flex-column fs-5">
-              <label for="">Description</label>
-              <textarea class="form-control mx-auto w-100 h-50" name="description" id="description" placeholder="Write a description.." required ></textarea>
-            </div>
+        </div>
+        <div class="listingInfoContainer d-flex flex-column justify-content-center" id="listingInfoContainer">
 
-            <div class="form-group d-flex flex-column fs-5">
-              <label for="">Listing ends</label>
-              <input class="form-control mb-2" type="datetime-local" name="endsAt" id="endsAt" required>
-            </div>
+           <div class="d-flex flex-column" id="titleAndDescriptionContainer">
 
-            <div class="form-group d-flex flex-column fs-5">
-              <label for="">Tags</label>
-              <input class="form-control mb-2" type="text" name="tags[]" id="tags" placeholder="Separate tags with commas (e.g. smartphones, laptops, dresses)">
-            </div>
+           </div>
 
-            <div class="form-group d-flex flex-column fs-5">
-              <label for="">Image (Url)</label>
-              <input class="form-control mb-2" type="url" name="media[]" placeholder="https://www.example.com/media-example" id="media">
+          <div class="timeLeftContainer border border-start-0 border-end-0" id="timeLeftContainer">
+            
+          </div>
+
+          <div class="currentPriceContainer mb-4 d-flex fw-semibold" id="currentPriceContainer">
+            
+          </div>
+
+          <div class="minimumBidContainer mb-5 d-flex" id="minimumBidContainer">
+            
+          </div>
+
+          <div class="listingBidInputContainer d-flex">
+            <span>Make Your Bid:</span>
+            <input class="ms-5" type="number" name="bidInput" id="bidAmountInput" placeholder="$00.00">
+          </div>
           
-                <button class="d-flex rounded-2 w-100 bg-primary border-0 mt-3 text-white py-1 fw-semibold justify-content-center align-items-center" id="listingBtn">
-                    Update Listing
-                </button>
-            </div>
-        </form>
+          
+          <button class="mt-4" id="placeBidButton">Place Your Bid</button>
+          
+        </div>
+
       </div>
+      
+      
     </main>
 </body>
 </html>
+
+

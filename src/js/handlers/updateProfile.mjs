@@ -1,5 +1,4 @@
 import * as getApiData from "../api/profiles/index.mjs";
-
 import { load } from "../storage/storage.mjs";
 
 export async function updateProfileListener() {
@@ -43,4 +42,3 @@ export async function updateProfileListener() {
         })
     }
 };
-console.log("i am updateProfile eventListener");

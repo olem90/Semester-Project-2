@@ -2,6 +2,7 @@ import { createListing } from "../api/listings/create.mjs";
 
 export function createListingListener() {
     const form =  document.querySelector("#createListing");
+    
     if (form) {
         form.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -9,16 +10,17 @@ export function createListingListener() {
             const formData = new FormData(form);
             const listing = Object.fromEntries(formData.entries());
 
-            console.log("this is the createListener");
+            console.log(listing)
            
             //send to api          
             if (createListing) {
                 createListing(listing);
-                // setTimeout(function routeHome() {
-                // {
-                //     window.location.replace("/feed/listings.html");                  
-                // }          
-                // },1000);
+                
+                setTimeout(function routeHome() {
+            {
+                //window.location.replace("/profile/profileListings/profileListings.html");                  
+            }          
+            },1000);
             }
         })
     }

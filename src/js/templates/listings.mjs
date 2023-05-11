@@ -41,7 +41,7 @@ export function listingsTemplate(listingData) {
 
     clickable.addEventListener('click', (e) => {
         
-        window.location.href = `/listing/specificListing.html?id=${listingData.id}`;
+        window.location.href = `/listing/listing.html?id=${listingData.id}`;
       });
      
     return clickable;

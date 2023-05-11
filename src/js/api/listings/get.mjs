@@ -18,7 +18,7 @@ export async function getListing(id) {
     if (!id) {
         throw new Error("GET requires a listingID");
     }
-    const getListingURL = `${API_AUCTION_URL}${action}/${id}`;
+    const getListingURL = `${API_AUCTION_URL}${action}/${id}?_bids=true&_seller=true`;
     
     const response = await fetchWithToken( getListingURL );
 

@@ -1,3 +1,4 @@
+/*
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
@@ -7,7 +8,7 @@ export function ProfileListingTemplate(listing) {
     const profileListing = listing.find(
         (listing) => listing.id === id);
 
-    console.log(profileListing)
+        console.log(profileListing);
 
     const dateListingEnds = profileListing.endsAt;
 
@@ -23,13 +24,6 @@ export function ProfileListingTemplate(listing) {
         return `${days}d ${hours}h`;
     }
 
-    const listingsBids = profileListing.bids;
-
-    for (let i = 0; i < listingsBids.length; i++) {
-        const bid = listingsBids[i];
-        const lastBid = `$${bid.amount}`;
-        const minimumlistingBid = `$${bid.amount + 1}` }
-
     const title = document.createElement("h1");
     const listingInfoContainer = document.createElement("div");
     const imageContainer = document.createElement("div");
@@ -44,40 +38,51 @@ export function ProfileListingTemplate(listing) {
     const minimumBid = document.createElement("span");
     const minimumBidContainer = document.createElement("div");
     const MakeYourBidContainer = document.createElement("div");
-    const MakeYourBidInput = document.createElement("input");
-    const bidButton = document.createElement("button");
     const listingImg = document.createElement("img");
-    const MakeYourBid = document.createElement("span");
+    const editProfileListing = document.createElement("a");
 
-    pageContainer.classList.add("singleListingContainer", "d-flex", "flex-row", "mt-4");
+    pageContainer.classList.add("singleProfileListingContainer", "d-flex", "flex-row", "mt-4");
     imageContainer.classList.add("profileListingImg-container", "d-flex", "flex-column", "justify-content-center");
-    listingInfoContainer.classList.add("listingInfoContainer", "ms-3");
+    listingInfoContainer.classList.add("profileListingInfoContainer", "ms-3");
     currrentPriceContainer.classList.add("mt-3");
     timeAndBidsContainer.classList.add("timeAndBidsContainer" ,"border", "border-start-0", "border-end-0", "border-top-2", "border-bottom-2", "d-flex", "flex-row", "mt-2");
     numberOfBids.classList.add("ms-3");
-    bidButton.classList.add("bidButton", "text-light", "fw-bold");
     minimumBidContainer.classList.add("mt-3");
     MakeYourBidContainer.classList.add("mt-3");
-    MakeYourBidInput.classList.add("ms-5");
+    editProfileListing.classList.add("editProfileListing", "me-0");
     
     timeLeft.innerText =`Time Left: ${timeLeftListing} |`;
     numberOfBids.innerText =  `Bids: ${profileListing._count.bids}`;
     title.innerText = profileListing.title;
     description.innerText = profileListing.description;
-    bidButton.innerText = "Place My Bid";
-    MakeYourBid.innerText = "Make Yor Bid:"
     imageBackground.classList.add("imageBackground", "d-flex")
+    editProfileListing.innerText = "Edit";
+    editProfileListing.href = "/listing/edit/editListing.html" + `?id=${profileListing.id}`;
 
-    console.log(description.innerText)
+    const bids = profileListing.bids;
+        let highestBid = 0;
+        let lastBid = 0;
 
-    if ( profileListing.bids[0] ) {
-        currrentPrice.innerText = `Current Price: ${profileListing.bids[0]}`;
-        minimumBid.innerText = `Minimum Bid: ${profileListing.bids[0]}` + 1;
-    } else {
-        currrentPrice.innerText = "Current price: $1"; 
-        minimumBid.innerText = "Minimum Bid: $2";
-    }
-    
+        if (bids.length > 0) {
+            for (let i = 0; i < bids.length; i++) {
+              const bid = bids[i];
+              const bidAmount = bid.amount;
+              
+              if (bidAmount > highestBid) {
+                highestBid = bidAmount;
+              }
+              
+              lastBid = bidAmount;
+            }
+            
+            const minimumListingBid = `$${highestBid + 1}`;
+            currrentPrice.innerText = `Current Price: $${highestBid}`;
+            minimumBid.innerText = `Minimum Bid: ${minimumListingBid}`;
+            } else {
+            currrentPrice.innerText = `Current price: $1`; 
+            minimumBid.innerText = "Minimum Bid: $2";
+            }
+
     pageContainer.appendChild(imageContainer);
     pageContainer.appendChild(listingInfoContainer);
 
@@ -94,8 +99,7 @@ export function ProfileListingTemplate(listing) {
     listingInfoContainer.appendChild(timeAndBidsContainer);
     listingInfoContainer.appendChild(currrentPriceContainer);
     listingInfoContainer.appendChild(minimumBidContainer);
-    listingInfoContainer.appendChild(MakeYourBidContainer);
-    listingInfoContainer.appendChild(bidButton);
+    listingInfoContainer.appendChild(editProfileListing);
 
     timeAndBidsContainer.appendChild(timeLeft);
     timeAndBidsContainer.appendChild(numberOfBids);
@@ -103,12 +107,9 @@ export function ProfileListingTemplate(listing) {
     currrentPriceContainer.appendChild(currrentPrice);
     minimumBidContainer.appendChild(minimumBid);
 
-    MakeYourBidContainer.appendChild(MakeYourBid);
-    MakeYourBidContainer.appendChild(MakeYourBidInput);
-
     return pageContainer;
 }
 export function renderProfileListingTemplate(profileListingTemplateData, parent) {
     parent.append(ProfileListingTemplate(profileListingTemplateData))
     };
-    
+    */
