@@ -102,12 +102,9 @@ export function ProfileListingTemplate(listing) {
     listingInfoContainer.appendChild(currrentPriceContainer);
     listingInfoContainer.appendChild(minimumBidContainer);
     listingInfoContainer.appendChild(editProfileListingContainer);
-
     editProfileListingContainer.appendChild(editProfileListing);
-    
     timeAndBidsContainer.appendChild(timeLeft);
     timeAndBidsContainer.appendChild(numberOfBids);
-
     currrentPriceContainer.appendChild(currrentPrice);
     minimumBidContainer.appendChild(minimumBid);
 

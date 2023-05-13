@@ -34,7 +34,15 @@ if ( path === "/listing/edit/editListing.html") {
 }
 
 if( path === "/feed/listings.html") {
-    homeListingsTemplates();
+    activeListingsTemplate();
+}
+
+if( path === "/listing/popularListings.html" ) {
+    SortedByHighestBidCountTemplate()
+}
+
+if ( path === "/listing/newestListings.html") {
+    SortedByNewestTemplate();
 }
 
 if ( path === "/profile/profileListings/profileListings.html"){
@@ -59,10 +67,16 @@ if ( path === "/listing/listing.html") {
 };
 }
 
-async function homeListingsTemplates() {
+async function listingsTemplates() {
     const listings = await listingMethods.getListings();
     const container = document.querySelector("#listingsContainer");
     templates.renderListingTemplates(listings, container);
+};
+
+async function activeListingsTemplate() {
+    const activeListings = await listingMethods.getActiveListings();
+    const container = document.querySelector("#listingsContainer");
+    templates.renderListingTemplates(activeListings, container);
 };
 
 async function accountTemplate() {
@@ -88,6 +102,28 @@ async function profileListingTemplate() {
     const listingContainer = document.querySelector("#listingContainer");
     templates.renderListingTemplate(listing, listingContainer);
  };
+
+ async function SortedByHighestBidCountTemplate() {
+    const listings = await listingMethods.getActiveListings();
+    function sortListingsByBids(a, b) {
+        return b._count.bids - a._count.bids;
+      }
+    const sortedListingsByBids = listings.sort(sortListingsByBids);
+    const listingContainer = document.querySelector("#activeListingsContainer");
+    templates.renderListingTemplates(sortedListingsByBids, listingContainer);
+ };
+
+ async function SortedByNewestTemplate() {
+    const listings = await listingMethods.getActiveListings();
+    function sortListingsByNewest(a, b) {
+        return new Date (b.created) - new Date (a.created);
+      }
+    const sortedListingsByNewest = listings.sort(sortListingsByNewest);
+    const listingContainer = document.querySelector("#newestListingsContainer");
+    templates.renderListingTemplates(sortedListingsByNewest, listingContainer);
+ };
+
+
 
 
 

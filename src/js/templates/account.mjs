@@ -10,21 +10,24 @@ export function accountTemplate(accountData) {
     const accountInfo = document.createElement("div");
     const div = document.createElement("div");
 
-    name.innerText = `Name: ${accountData.name}`;
-    email.innerText = `Email: ${accountData.email}`;
-    credits.innerText = `Credits: ${accountData.credits}`;
+    name.innerHTML =  `<b>Name:</b> ${accountData.name}`;
+    email.innerHTML = `<b>Email:</b> ${accountData.email}`;
+    credits.innerHTML = `<b>Credits:</b> ${accountData.credits}`;
     edit.innerText = "Edit";
     edit.href = "/profile/edit/edit.html" + `?id=${accountData.id}`;
     myListings.innerText = "My Listings";
     myListings.href = "/profile/profileListings/profileListings.html";
-
+    
     profileInfoContainer.classList.add("d-flex", "profileInfoContainer");
+    name.classList.add("fs-5", "fw-semibold");
     accountImg.classList.add("accountImage", "my-2");
     accountInfo.classList.add("d-flex", "flex-column", "ms-3", "w-100", "py-4");
     div.classList.add("edit-div", "d-flex", "flex-column", "w-100", "py-4");
-    email.classList.add("email", "my-1");
+    email.classList.add("email", "my-1", "fs-5", "fw-semibold");
     myListings.classList.add("mt-5", "fw-bold");
-
+    edit.classList.add("ProfileListingEdit");
+    credits.classList.add("fs-5", "fw-semibold");
+    
     profileInfoContainer.appendChild(div);
 
     if (accountData.avatar) {

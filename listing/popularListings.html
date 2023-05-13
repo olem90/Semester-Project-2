@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/dist/css/main.css">
     <script defer type="module" src="/src/js/index.mjs"></script>
     
-    <title>BidBay</title>
+    <title>BidBay | Popular Listings</title>
 </head>
 <body>
     <header class="d-flex justify-content-center">
@@ -24,7 +24,7 @@
                         <a class="nav-link text-light" href="/listing/newestListings.html">Newly Listed</a>
                     </li>
                     <li class="nav-item ms-2 fs-5 text-center">
-                        <a class="thumbnail nav-link text-white" href="/listing/popularListings.html">Popular Listings</a>
+                        <a class="thumbnail nav-link text-white" href="/listing/popularListings.html" id="popularListings">Popular Listings</a>
                     </li>
                     <li class="nav-item ms-2 fs-5 text-center">
                         <a class="nav-link text-white" href="/profile/account.html">Account</a>
@@ -42,7 +42,7 @@
           </nav>
     </header>
     <main>
-      <div class="container listingsContainer mt-5" id="listingsContainer">
+      <div class="container activeListingsContainer mt-5" id="activeListingsContainer">
         
       </div>
     </main>

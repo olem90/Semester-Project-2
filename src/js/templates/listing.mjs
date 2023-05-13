@@ -90,19 +90,13 @@ export async function specificListingTemplate() {
   const id = urlParams.get('id');
   
   export function listingTemplate(listingData) {
-       
-    console.log(listingData);
   
     const dateListingEnds = listingData.endsAt;
-
-      console.log(dateListingEnds);
   
     const now = new Date().getTime();
           const listingEnds = new Date(dateListingEnds);
           const timeRemaining = listingEnds - now;
           const timeLeftListing = getTimeLeft(timeRemaining);
-
-          console.log(timeRemaining)
       
       function getTimeLeft(timeDiff) {
           const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -110,15 +104,12 @@ export async function specificListingTemplate() {
       
           return `${days}d ${hours}h`;
       }
-      const auctionEnded = "Auction Ended";
       
-  
     const title = document.createElement("h1")
-    const listingInfoContainer = document.querySelector("#listingInfoContainer");
-    const imageContainer = document.querySelector("#listingImgContainer");
+    //const listingInfoContainer = document.querySelector("#listingInfoContainer");
+    //const imageContainer = document.querySelector("#listingImgContainer");
     const imageBackground = document.querySelector("#listingImageBackground");
     const titleAndDescriptionContainer = document.querySelector("#titleAndDescriptionContainer");
-    //const pageContainer = document.createElement("div");
     const currrentPriceContainer = document.querySelector("#currentPriceContainer");
     const currrentPrice = document.createElement("span");
     const description = document.createElement("span");
@@ -127,43 +118,29 @@ export async function specificListingTemplate() {
     const numberOfBids = document.createElement("span");
     const minimumBid = document.createElement("span");
     const minimumBidContainer = document.querySelector("#minimumBidContainer");
-    //   const MakeYourBidContainer = document.createElement("div");
-      const listingImg = document.createElement("img");
-    //   const bidInput = document.createElement("input");
-    //   const bidButton = document.createElement("button");
-    //   const makeYourBid = document.createElement("span");
+    const listingImg = document.createElement("img");
+    const bidInput = document.querySelector("#bidAmountInput");
+    const bidButton = document.querySelector("#placeBidButton");
 
     title.classList.add("listingTitle", "mb-3");
     description.classList.add("listingDescription")
-    //   pageContainer.classList.add("singleListingContainer", "d-flex", "flex-row", "mt-4");
-    //   imageContainer.classList.add("listingImg-container", "d-flex", "flex-column", "justify-content-center");
-    //   listingInfoContainer.classList.add("listingInfoContainer", "ms-5");
-    //   currrentPriceContainer.classList.add("mt-3", "fw-bold");
-    //   timeLeftAndBidsContainer.classList.add("timeLeftAndBidsContainer" ,"border", "border-start-0", "border-end-0", "border-top-2", "border-bottom-2", "d-flex", "flex-row", "mt-2");
-    //   numberOfBids.classList.add("ms-3");
-    //   minimumBidContainer.classList.add("mt-3");
-    //   MakeYourBidContainer.classList.add("mt-3", "MakeYourBidContainer");
-    //   bidButton.classList.add("bidButton", "mt-5");
-    //   imageBackground.classList.add("listingImageBackground", "d-flex");
-    //   bidInput.classList.add("bidInput", "ms-5");
     listingImg.classList.add("listingImg");
 
-    //   bidButton.innerText = "Place Your Bid";
     if (timeRemaining < 0) {
         timeLeft.innerText = "Auction has ended " ;
         timeLeft.classList.add("auction-ended");
         numberOfBids.innerText =  `| Bids: ${listingData._count.bids}`;
+        bidInput.disabled = true;
+        bidInput.style.backgroundColor = 'lightgray';
+        bidButton.disabled = true;
+        bidButton.style.backgroundColor = 'lightgray';  
     } else {
         timeLeft.innerText =`Time Left: ${timeLeftListing} |`;
         numberOfBids.innerText =  ` Bids: ${listingData._count.bids}`;
     }
-
-    console.log(timeLeftListing);
-   
     
     title.innerText = listingData.title;
     description.innerText = listingData.description;
-    //   makeYourBid.innerText = `Make Your Bid:`;
       
       const bids = listingData.bids;
           let highestBid = 0;
@@ -189,22 +166,12 @@ export async function specificListingTemplate() {
               minimumBid.innerText = "Minimum Bid: $2";
               }
   
-    //   pageContainer.appendChild(imageContainer);
-    //   pageContainer.appendChild(listingInfoContainer);
-  
       if (listingData.media) {
           listingImg.classList.add("singleListingImg");
           listingImg.src = listingData.media;
           listingImg.alt = `Image from ${listingData.title}`;
           imageBackground.appendChild(listingImg);
       }
-  
-    //   listingInfoContainer.appendChild(description);
-    //   listingInfoContainer.appendChild(timeLeftAndBidsContainer);
-    //   listingInfoContainer.appendChild(currrentPriceContainer);
-      //listingInfoContainer.appendChild(minimumBidContainer);
-      //listingInfoContainer.appendChild(MakeYourBidContainer);
-    //listingInfoContainer.appendChild(bidButton);
 
       titleAndDescriptionContainer.appendChild(title);
       titleAndDescriptionContainer.appendChild(description);
@@ -214,12 +181,23 @@ export async function specificListingTemplate() {
   
       currrentPriceContainer.appendChild(currrentPrice);
       minimumBidContainer.appendChild(minimumBid);
-
-    //   MakeYourBidContainer.appendChild(makeYourBid);
-    //   MakeYourBidContainer.appendChild(bidInput);
   
-     
   }
   export function renderListingTemplate(listingTemplateData, parent) {
-      parent.append(listingTemplate(listingTemplateData))
-      };
+    const listingElement = listingTemplate(listingTemplateData);
+    if (listingElement) {
+        parent.append(listingElement);
+    }
+    };
+
+    //   pageContainer.classList.add("singleListingContainer", "d-flex", "flex-row", "mt-4");
+    //   imageContainer.classList.add("listingImg-container", "d-flex", "flex-column", "justify-content-center");
+    //   listingInfoContainer.classList.add("listingInfoContainer", "ms-5");
+    //   currrentPriceContainer.classList.add("mt-3", "fw-bold");
+    //   timeLeftAndBidsContainer.classList.add("timeLeftAndBidsContainer" ,"border", "border-start-0", "border-end-0", "border-top-2", "border-bottom-2", "d-flex", "flex-row", "mt-2");
+    //   numberOfBids.classList.add("ms-3");
+    //   minimumBidContainer.classList.add("mt-3");
+    //   MakeYourBidContainer.classList.add("mt-3", "MakeYourBidContainer");
+    //   bidButton.classList.add("bidButton", "mt-5");
+    //   imageBackground.classList.add("listingImageBackground", "d-flex");
+    //   bidInput.classList.add("bidInput", "ms-5");
