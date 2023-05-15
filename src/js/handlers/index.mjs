@@ -7,3 +7,4 @@ export * from "./updateListing.mjs";
 export * from "./createBid.mjs";
 export * from "./deleteListing.mjs";
 export * from "./filterListings.mjs";
+export * from "./listingInfoSectionContent.mjs";

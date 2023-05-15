@@ -54,8 +54,8 @@ if( path === "/profile/account.html" ) {
 }
 
  if ( path === "/listing/listing.html") {
-     listingTemplate() ;
-     console.log("I am listingTemplate");
+     listingTemplate();
+     listeners.getListingInfo();
 }
 
 if ( path === "/profile/profileListings/specificProfileListing.html") {

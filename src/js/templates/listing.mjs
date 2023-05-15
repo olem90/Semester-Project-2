@@ -189,15 +189,3 @@ export async function specificListingTemplate() {
         parent.append(listingElement);
     }
     };
-
-    //   pageContainer.classList.add("singleListingContainer", "d-flex", "flex-row", "mt-4");
-    //   imageContainer.classList.add("listingImg-container", "d-flex", "flex-column", "justify-content-center");
-    //   listingInfoContainer.classList.add("listingInfoContainer", "ms-5");
-    //   currrentPriceContainer.classList.add("mt-3", "fw-bold");
-    //   timeLeftAndBidsContainer.classList.add("timeLeftAndBidsContainer" ,"border", "border-start-0", "border-end-0", "border-top-2", "border-bottom-2", "d-flex", "flex-row", "mt-2");
-    //   numberOfBids.classList.add("ms-3");
-    //   minimumBidContainer.classList.add("mt-3");
-    //   MakeYourBidContainer.classList.add("mt-3", "MakeYourBidContainer");
-    //   bidButton.classList.add("bidButton", "mt-5");
-    //   imageBackground.classList.add("listingImageBackground", "d-flex");
-    //   bidInput.classList.add("bidInput", "ms-5");
