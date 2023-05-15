@@ -18,18 +18,19 @@ export async function updateListingListener() {
         form.media.value = profileListing.media.join(',');
         form.description.value = profileListing.description;
         //form.endsAt.valueAsDate = new Date(profileListing.endsAt);
-        form.endsAt.value = new Date(profileListing.endsAt).toISOString().slice(0, 16);
+        // form.endsAt.value = new Date(profileListing.endsAt).toISOString().slice(0, 16);
 
         button.disabled = false;
 
         console.log(profileListing.media)
+        console.log(profileListing);
 
         form.addEventListener("submit", (event) => {
             event.preventDefault();
             const form = event.target;
             const formData = new FormData(form);
             const listing = Object.fromEntries(formData.entries());
-            const mediaUrls = formData.getAll('media[]')[0].split(",").map(url => url.trim());;
+            const mediaUrls = formData.getAll('media[]')[0].split(",").map(url => url.trim());
             listing.id = id;
 
             console.log(mediaUrls); 
@@ -40,6 +41,7 @@ export async function updateListingListener() {
             try {
                 if ( updateListing ) {
                     updateListing(listing);
+        
                     setTimeout(function routeBack() {
                     {
                         window.location.replace("/profile/profileListings/specificProfileListing.html" + `?id=${id}`);
@@ -53,10 +55,7 @@ export async function updateListingListener() {
               }        
         })
     } 
-}
-
-        
-;
+};
 
 
 

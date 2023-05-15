@@ -21,7 +21,7 @@ export function createBidListener() {
         }
         setTimeout(function routeHome() {
             {
-                window.location.replace("/listing/listing.html");               
+                location.reload();               
             }          
             },1000);
         })

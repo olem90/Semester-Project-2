@@ -21,11 +21,11 @@ export function accountTemplate(accountData) {
     profileInfoContainer.classList.add("d-flex", "profileInfoContainer");
     name.classList.add("fs-5", "fw-semibold");
     accountImg.classList.add("accountImage", "my-2");
-    accountInfo.classList.add("d-flex", "flex-column", "ms-3", "w-100", "py-4");
+    accountInfo.classList.add("d-flex", "flex-column", "w-100", "py-4");
     div.classList.add("edit-div", "d-flex", "flex-column", "w-100", "py-4");
     email.classList.add("email", "my-1", "fs-5", "fw-semibold");
-    myListings.classList.add("mt-5", "fw-bold");
-    edit.classList.add("ProfileListingEdit");
+    myListings.classList.add("mt-5", "fw-semibold", "fs-5");
+    edit.classList.add("ProfileListingEdit", "fs-5", "fw-semibold");
     credits.classList.add("fs-5", "fw-semibold");
     
     profileInfoContainer.appendChild(div);
@@ -34,14 +34,16 @@ export function accountTemplate(accountData) {
         accountImg.src = accountData.avatar;
         div.appendChild(accountImg);
     }
+    console.log(accountData);
 
+    div.appendChild(accountInfo)
     div.appendChild(edit);
     div.appendChild(myListings);
-    profileInfoContainer.appendChild(accountInfo);
+    // profileInfoContainer.appendChild(accountInfo);
     
-    accountInfo.appendChild(name);
-    accountInfo.appendChild(email);
-    accountInfo.appendChild(credits);
+     accountInfo.appendChild(name);
+     accountInfo.appendChild(email);
+     accountInfo.appendChild(credits);
     
     return profileInfoContainer;
 

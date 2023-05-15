@@ -56,8 +56,21 @@
 .SearchBtn:hover {
   background-color: rgb(24, 3, 82);
   color: #fff !important;
+  transition: ease-in-out;
+  transition-delay: 40ms;
 }
 
+@media (width < 992px) {
+  .nav-link {
+    width: fit-content;
+  }
+  .nav-item {
+    margin: 0;
+  }
+  .navbar-nav {
+    margin-right: auto;
+  }
+}
 #listingsContainer, #activeListingsContainer, #newestListingsContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
