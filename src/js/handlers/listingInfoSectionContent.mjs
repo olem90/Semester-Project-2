@@ -1,6 +1,6 @@
 import { getListing } from "../api/listings/get.mjs";
 
-const path = location.pathname;
+
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -10,9 +10,6 @@ export async function getListingInfo() {
 
 const listingInfo = await getListing(id);
 
-if ( path === "/listing/listing.html") {
-    
-}
 const itemInfo = document.querySelector("#itemInfo");
 const sellerInfo = document.querySelector("#sellerInfo");
 const bidInfo = document.querySelector("#bidInfo");
@@ -82,12 +79,13 @@ bidInfo.addEventListener("click", () => {
       </div>`;
 
       const bids = listingInfo.bids;
+      const sortedBidsByNewest = bids.sort((a, b) => new Date(b.created) - new Date(a.created));
 
       for (let i = 0; i < bids.length; i++) {
-        const bid = bids[i];
-        const bidderName = bid.bidderName;
-        const bidAmount = bid.amount;
-        const bidTime = new Date(bid.created).toLocaleString();
+        const sortedBid = sortedBidsByNewest[i];
+        const bidderName = sortedBid.bidderName;
+        const bidAmount = sortedBid.amount;
+        const bidTime = new Date(sortedBid.created).toLocaleString();
 
         contentContainer.innerHTML +=
       `<div class="d-flex flex-column" id="bidHistoryContainer2">
