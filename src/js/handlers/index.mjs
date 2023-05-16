@@ -8,3 +8,4 @@ export * from "./createBid.mjs";
 export * from "./deleteListing.mjs";
 export * from "./filterListings.mjs";
 export * from "./listingInfoSectionContent.mjs";
+export * from "./searchListingsFilter.mjs";

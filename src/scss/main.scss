@@ -517,7 +517,7 @@
     text-decoration: none;
 }
 #profileListingBids {
-    max-width: 50%;
+    max-width: 48%;
     margin-inline: auto;
     margin-top: 40px;
 }
@@ -530,5 +530,6 @@
 .profileListingBids {
     display: flex;
     justify-content: space-between;
+    
 }
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

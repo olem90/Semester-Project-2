@@ -75,10 +75,8 @@ export function ProfileListingTemplate(listing) {
     bidTimeLabel.innerHTML = "Time of last bid";
     bidNameLabel.innerHTML = "Bidder";
 
-
     const bids = profileListing.bids;
-   
-      const sortedBidsByNewest = bids.sort((a, b) => new Date(b.created) - new Date(a.created));
+    const sortedBidsByNewest = bids.sort((a, b) => new Date(b.created) - new Date(a.created));
 
       for (let i = 0; i < bids.length; i++) {
         const sortedBid = sortedBidsByNewest[i];
@@ -90,7 +88,7 @@ export function ProfileListingTemplate(listing) {
         bidAmount.innerText = `${bidsAmount}`;
         bidTime.innerText = `${bidsTime}`;
 }
-    
+
         let highestBid = 0;
         let lastBid = 0;
 

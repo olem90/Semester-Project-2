@@ -35,18 +35,22 @@ if ( path === "/listing/edit/editListing.html") {
 
 if( path === "/feed/listings.html") {
     activeListingsTemplate();
+    listingsSearchFilter();
 }
 
 if( path === "/listing/popularListings.html" ) {
-    SortedByHighestBidCountTemplate()
+    SortedByHighestBidCountTemplate();
+    SortedByPopularSearchFilter();
 }
 
 if ( path === "/listing/newestListings.html") {
     SortedByNewestTemplate();
+    SortedByNewestSearchFilter();
 }
 
 if ( path === "/profile/profileListings/profileListings.html"){
     profileListingsTemplate();
+    profileListingsSearchFilter();
 }
 
 if( path === "/profile/account.html" ) {
@@ -61,10 +65,9 @@ if( path === "/profile/account.html" ) {
 if ( path === "/profile/profileListings/specificProfileListing.html") {
     profileListingTemplate();
 }
+
 if ( path === "/listing/listing.html") {
-        window.onload = () => {
        listeners.createBidListener();
-};
 }
 
 async function listingsTemplates() {
@@ -111,6 +114,7 @@ async function profileListingTemplate() {
     const sortedListingsByBids = listings.sort(sortListingsByBids);
     const listingContainer = document.querySelector("#activeListingsContainer");
     templates.renderListingTemplates(sortedListingsByBids, listingContainer);
+
  };
 
  async function SortedByNewestTemplate() {
@@ -123,4 +127,69 @@ async function profileListingTemplate() {
     templates.renderListingTemplates(sortedListingsByNewest, listingContainer);
  };
 
+ async function listingsSearchFilter() {
+    const listings = await listingMethods.getActiveListings();
+    const listingsContainer = document.querySelector("#listingsContainer");
+    templates.renderListingTemplates(listings, listingsContainer);
+
+    const searchBar = document.querySelector(".searchInput");
+    const searchForm = document.querySelector(".searchBar");
+
+    searchBar.addEventListener('input', (event) => listeners.filterListings(event));
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault(); 
+        listeners.filterListings(event);
+    });
+  }
+
+  async function profileListingsSearchFilter() {
+    const profileListings = await profileMethods.getProfilesListings();
+    const profileListingsContainer = document.querySelector("#profileListingsContainer");
+    templates.renderListingTemplates(profileListings, profileListingsContainer);
+
+    const searchBar = document.querySelector(".searchInput");
+    const searchForm = document.querySelector(".searchBar");
+
+    searchBar.addEventListener('input', (event) => listeners.filterProfileListings(event));
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault(); 
+        listeners.filterProfileListings(event);
+  })};
+
+  async function SortedByNewestSearchFilter() {
+    const listings = await listingMethods.getActiveListings();
+    function sortListingsByNewest(a, b) {
+        return new Date (b.created) - new Date (a.created);
+      }
+    const sortedListingsByNewest = listings.sort(sortListingsByNewest);
+    const listingContainer = document.querySelector("#newestListingsContainer");
+    templates.renderListingTemplates(sortedListingsByNewest, listingContainer);
+
+    const searchBar = document.querySelector("#searchInput");
+    const searchForm = document.querySelector(".searchBar");
+
+    searchBar.addEventListener('input', (event) => listeners.filterNewlyListed(event));
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault(); 
+        listeners.filterNewlyListed(event);
+  })}
+
+  async function SortedByPopularSearchFilter() {
+    const listings = await listingMethods.getActiveListings();
+    function sortListingsByBids(a, b) {
+        return b._count.bids - a._count.bids;
+      }
+    const sortedListingsByBids = listings.sort(sortListingsByBids);
+    const listingContainer = document.querySelector("#activeListingsContainer");
+    templates.renderListingTemplates(sortedListingsByBids, listingContainer);
+
+    const searchBar = document.querySelector("#searchInput");
+    const searchForm = document.querySelector(".searchBar");
+
+    searchBar.addEventListener('input', (event) => listeners.filterPopularListings(event));
+    searchForm.addEventListener("submit", (event) => {
+        event.preventDefault(); 
+        listeners.filterPopularListings(event);
+  })
+ };
 
