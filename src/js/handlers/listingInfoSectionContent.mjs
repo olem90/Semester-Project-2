@@ -25,7 +25,17 @@ if ( listingInfo.seller.wins.length > 0) {
     sellerWins = listingInfo.seller.wins;
 }
 
-itemInfo.addEventListener("click", () => {
+itemInfo.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    sellerInfo.style.fontWeight = "normal";
+    itemInfo.style.fontWeight = "bold";
+    bidInfo.style.fontWeight = "normal";
+
+    itemInfo.style.textDecoration = "underline";
+    bidInfo.style.textDecoration = "none";
+    sellerInfo.style.textDecoration = "none";
+
     contentContainer.innerHTML = `<div id="ItemContainer">
     <div>
     <span> <b>Item ID:</b></span>
@@ -50,7 +60,17 @@ itemInfo.addEventListener("click", () => {
     </div>`
 })
 
-sellerInfo.addEventListener("click", () => {
+sellerInfo.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    sellerInfo.style.fontWeight = "bold";
+    itemInfo.style.fontWeight = "normal";
+    bidInfo.style.fontWeight = "normal";
+
+    itemInfo.style.textDecoration = "none";
+    bidInfo.style.textDecoration = "none";
+    sellerInfo.style.textDecoration = "underline";
+
     contentContainer.innerHTML = `<div class="mb-5" id="ItemContainer">
     <div class="mb-3">
     <span class="fs-4"> <strong>Seller:</strong></span>
@@ -69,7 +89,16 @@ sellerInfo.addEventListener("click", () => {
     </div>`
 })
 
-bidInfo.addEventListener("click", () => {
+bidInfo.addEventListener("click", (event) => {
+    event.preventDefault();
+    sellerInfo.style.fontWeight = "normal";
+    itemInfo.style.fontWeight = "normal";
+    bidInfo.style.fontWeight = "bold";
+
+    itemInfo.style.textDecoration = "none";
+    bidInfo.style.textDecoration = "underline";
+    sellerInfo.style.textDecoration = "none";
+
     contentContainer.innerHTML = `
     <div class="mt-4 d-flex justify-content-center">
       <div class="border border-end-0 w-100 border-start-0 border-buttom-3 border-top-0 mb-2" id="bidHistoryContainer">

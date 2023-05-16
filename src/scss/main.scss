@@ -1,6 +1,6 @@
 .nav-link {
     background-color: rgb(24, 3, 82);
-    width: 250px; 
+    width: 220px; 
 }
 
 .nav-item { 
@@ -32,6 +32,7 @@
     top: 20px;
     max-width: 600px;
 }
+
 .clickableListings {
     min-width: 100%;
     min-height: 480px;
@@ -84,13 +85,13 @@
     
 }
 
-
 #profileListingsContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height: auto;
     grid-gap: 30px 20px;
 }
+
 @media (width < 1200px) {
     #listingsContainer, #newestListingsContainer, #activeListingsContainer {
         grid-template-columns: 1fr 1fr 1fr;
@@ -106,7 +107,6 @@
             width: 100%;
         }
     }
-
 
     #profileListingsContainer {
         grid-template-columns: 1fr 1fr 1fr;
@@ -153,8 +153,6 @@
         }      
     }
 }
-
-
 
 @media (width < 800px) {
     #listingsContainer, #activeListingsContainer, #newestListingsContainer {
@@ -507,9 +505,30 @@
     justify-content: center;
     margin-inline: auto;
     box-sizing: border-box;
+    margin-bottom: 50px;
+}
+#itemInfo {
+    text-decoration: none;
+}
+#bidInfo {
+    text-decoration: none;
+}
+#sellerInfo {
+    text-decoration: none;
+}
+#profileListingBids {
+    max-width: 50%;
+    margin-inline: auto;
+    margin-top: 40px;
 }
 
+.bidsValues {
+    display: flex;
+    justify-content: space-between;
+}
 
-
-
+.profileListingBids {
+    display: flex;
+    justify-content: space-between;
+}
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

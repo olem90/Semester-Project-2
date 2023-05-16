@@ -37,11 +37,20 @@ export function ProfileListingTemplate(listing) {
     const numberOfBids = document.createElement("span");
     const minimumBid = document.createElement("span");
     const minimumBidContainer = document.createElement("div");
-    const MakeYourBidContainer = document.createElement("div");
+    const makeYourBidContainer = document.createElement("div");
     const listingImg = document.createElement("img");
     const editProfileListingContainer = document.createElement("div");
     const editProfileListing = document.createElement("a");
-
+    const profileListingBidsContainer = document.querySelector("#profileListingBids");
+    const bidsValues = document.createElement("div");
+    const bidAmountLabel = document.createElement("strong");
+    const bidTimeLabel = document.createElement("strong");
+    const bidNameLabel = document.createElement("strong");
+    const profileListingBids = document.createElement("div");
+    const bidName = document.createElement("span");
+    const bidAmount = document.createElement("span");
+    const bidTime = document.createElement("span");
+    
     pageContainer.classList.add("singleProfileListingContainer", "d-flex", "flex-row", "mt-4");
     imageContainer.classList.add("profileListingImg-container", "d-flex", "flex-column", "justify-content-center");
     listingInfoContainer.classList.add("profileListingInfoContainer", "ms-3");
@@ -49,9 +58,11 @@ export function ProfileListingTemplate(listing) {
     timeAndBidsContainer.classList.add("timeAndBidsContainer" ,"border", "border-start-0", "border-end-0", "border-top-2", "border-bottom-2", "d-flex", "flex-row", "mt-5");
     numberOfBids.classList.add("ms-3");
     minimumBidContainer.classList.add("mt-3");
-    MakeYourBidContainer.classList.add("mt-3");
+    makeYourBidContainer.classList.add("mt-3");
     editProfileListing.classList.add("editProfileListing");
     editProfileListingContainer.classList.add("editProfileListingContainer");
+    bidsValues.classList.add("bidsValues", "border", "border-end-0", "border-start-0", "border-bottom-5", "border-top-0");
+    profileListingBids.classList.add("profileListingBids", "border", "border-bottom-3","border-end-0", "border-start-0", "border-top-0" )
     
     timeLeft.innerText =`Time Left: ${timeLeftListing} |`;
     numberOfBids.innerText =  `Bids: ${profileListing._count.bids}`;
@@ -60,8 +71,26 @@ export function ProfileListingTemplate(listing) {
     imageBackground.classList.add("imageBackground", "d-flex")
     editProfileListing.innerText = "Edit Listing";
     editProfileListing.href = "/listing/edit/editListing.html" + `?id=${profileListing.id}`;
+    bidAmountLabel.innerHTML = "Bid Amount";
+    bidTimeLabel.innerHTML = "Time of last bid";
+    bidNameLabel.innerHTML = "Bidder";
+
 
     const bids = profileListing.bids;
+   
+      const sortedBidsByNewest = bids.sort((a, b) => new Date(b.created) - new Date(a.created));
+
+      for (let i = 0; i < bids.length; i++) {
+        const sortedBid = sortedBidsByNewest[i];
+        const bidderName = sortedBid.bidderName;
+        const bidsAmount = sortedBid.amount;
+        const bidsTime = new Date(sortedBid.created).toLocaleString();
+        
+        bidName.innerText = `${bidderName}`;
+        bidAmount.innerText = `${bidsAmount}`;
+        bidTime.innerText = `${bidsTime}`;
+}
+    
         let highestBid = 0;
         let lastBid = 0;
 
@@ -107,6 +136,19 @@ export function ProfileListingTemplate(listing) {
     timeAndBidsContainer.appendChild(numberOfBids);
     currrentPriceContainer.appendChild(currrentPrice);
     minimumBidContainer.appendChild(minimumBid);
+
+    profileListingBidsContainer.appendChild(bidsValues);
+    profileListingBidsContainer.appendChild(profileListingBids);
+    
+    bidsValues.appendChild(bidNameLabel);
+    bidsValues.appendChild(bidAmountLabel);
+    bidsValues.appendChild(bidTimeLabel);
+
+    profileListingBids.appendChild(bidName);
+    profileListingBids.appendChild(bidAmount);
+    profileListingBids.appendChild(bidTime);
+
+
 
     return pageContainer;
 }
