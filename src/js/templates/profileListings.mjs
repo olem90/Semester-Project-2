@@ -20,7 +20,7 @@ export function profileListingsTemplate(profileListingData) {
     tags.innerText = profileListingData.tags;
     listingInfoContainer.classList.add("listing-info", "mt-3");
     imageBackground.classList.add("image-background");
-    clickableListing.classList.add("clickableListing", "text-decoration-none");
+    clickableListing.classList.add("clickableProfileListing", "text-decoration-none");
 
     clickableListing.appendChild(listingCard);
     listingCard.appendChild(listing);
@@ -43,7 +43,7 @@ export function profileListingsTemplate(profileListingData) {
     clickableListing.addEventListener('click', (e) => {
         e.preventDefault(); 
         const listingId = profileListingData.id;
-        const url = `/profile/profileListings/specificProfileListing.html?id=${listingId}&from=profile`;
+        const url = `/profile/profileListings/specificProfileListing.html?id=${listingId}`;
         window.location.href = url;
       });
      

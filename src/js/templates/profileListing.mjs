@@ -146,8 +146,6 @@ export function ProfileListingTemplate(listing) {
     profileListingBids.appendChild(bidAmount);
     profileListingBids.appendChild(bidTime);
 
-
-
     return pageContainer;
 }
 export function renderProfileListingTemplate(profileListingTemplateData, parent) {

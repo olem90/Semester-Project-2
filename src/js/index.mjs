@@ -34,17 +34,17 @@ if ( path === "/listing/edit/editListing.html") {
 }
 
 if( path === "/feed/listings.html") {
-    activeListingsTemplate();
+    //activeListingsTemplate();
     listingsSearchFilter();
 }
 
 if( path === "/listing/popularListings.html" ) {
-    SortedByHighestBidCountTemplate();
+    //SortedByHighestBidCountTemplate();
     SortedByPopularSearchFilter();
 }
 
 if ( path === "/listing/newestListings.html") {
-    SortedByNewestTemplate();
+    // SortedByNewestTemplate();
     SortedByNewestSearchFilter();
 }
 
@@ -70,17 +70,17 @@ if ( path === "/listing/listing.html") {
        listeners.createBidListener();
 }
 
-async function listingsTemplates() {
-    const listings = await listingMethods.getListings();
-    const container = document.querySelector("#listingsContainer");
-    templates.renderListingTemplates(listings, container);
-};
+// async function listingsTemplates() {
+//     const listings = await listingMethods.getListings();
+//     const container = document.querySelector("#listingsContainer");
+//     templates.renderListingTemplates(listings, container);
+// };
 
-async function activeListingsTemplate() {
-    const activeListings = await listingMethods.getActiveListings();
-    const container = document.querySelector("#listingsContainer");
-    templates.renderListingTemplates(activeListings, container);
-};
+// async function activeListingsTemplate() {
+//     const activeListings = await listingMethods.getActiveListings();
+//     const container = document.querySelector("#listingsContainer");
+//     templates.renderListingTemplates(activeListings, container);
+// };
 
 async function accountTemplate() {
     const profile = await profileMethods.getProfile(profileName.name);
@@ -89,9 +89,9 @@ async function accountTemplate() {
 };
 
 async function profileListingsTemplate() {
-    const profileListings = await profileMethods.getProfilesListings();
-    const profileListingsContainer = document.querySelector("#profileListingsContainer");
-    templates.renderProfileListingTemplates(profileListings, profileListingsContainer);
+   const profileListings = await profileMethods.getProfilesListings();
+   const profileListingsContainer = document.querySelector("#profileListingsContainer");
+   templates.renderProfileListingTemplates(profileListings, profileListingsContainer);
 };
 
 async function profileListingTemplate() {
@@ -106,26 +106,26 @@ async function profileListingTemplate() {
     templates.renderListingTemplate(listing, listingContainer);
  };
 
- async function SortedByHighestBidCountTemplate() {
-    const listings = await listingMethods.getActiveListings();
-    function sortListingsByBids(a, b) {
-        return b._count.bids - a._count.bids;
-      }
-    const sortedListingsByBids = listings.sort(sortListingsByBids);
-    const listingContainer = document.querySelector("#activeListingsContainer");
-    templates.renderListingTemplates(sortedListingsByBids, listingContainer);
+//  async function SortedByHighestBidCountTemplate() {
+//     const listings = await listingMethods.getActiveListings();
+//     function sortListingsByBids(a, b) {
+//         return b._count.bids - a._count.bids;
+//       }
+//     const sortedListingsByBids = listings.sort(sortListingsByBids);
+//     const listingContainer = document.querySelector("#activeListingsContainer");
+//     templates.renderListingTemplates(sortedListingsByBids, listingContainer);
 
- };
+//  };
 
- async function SortedByNewestTemplate() {
-    const listings = await listingMethods.getActiveListings();
-    function sortListingsByNewest(a, b) {
-        return new Date (b.created) - new Date (a.created);
-      }
-    const sortedListingsByNewest = listings.sort(sortListingsByNewest);
-    const listingContainer = document.querySelector("#newestListingsContainer");
-    templates.renderListingTemplates(sortedListingsByNewest, listingContainer);
- };
+//  async function SortedByNewestTemplate() {
+//     const listings = await listingMethods.getActiveListings();
+//     function sortListingsByNewest(a, b) {
+//         return new Date (b.created) - new Date (a.created);
+//       }
+//     const sortedListingsByNewest = listings.sort(sortListingsByNewest);
+//     const listingContainer = document.querySelector("#newestListingsContainer");
+//     templates.renderListingTemplates(sortedListingsByNewest, listingContainer);
+//  };
 
  async function listingsSearchFilter() {
     const listings = await listingMethods.getActiveListings();
@@ -145,7 +145,7 @@ async function profileListingTemplate() {
   async function profileListingsSearchFilter() {
     const profileListings = await profileMethods.getProfilesListings();
     const profileListingsContainer = document.querySelector("#profileListingsContainer");
-    templates.renderListingTemplates(profileListings, profileListingsContainer);
+    templates.renderProfileListingTemplates(profileListings, profileListingsContainer);
 
     const searchBar = document.querySelector(".searchInput");
     const searchForm = document.querySelector(".searchBar");
@@ -193,3 +193,16 @@ async function profileListingTemplate() {
   })
  };
 
+ function isAuthenticated() {
+    if (!localStorage.getItem('token')) {
+        const accountLink = document.querySelector("#accountLink");
+        accountLink.addEventListener("click", () => {
+            alert(`<div> 
+            <span>You don't seem to have an account</span>
+            <span>Log in <a href="/profile/login/login.html">HERE</a></span>
+            
+            </div>`)
+        })
+}};
+
+//isAuthenticated();

@@ -1,12 +1,12 @@
 import * as storage from "../storage/storage.mjs";
 
-//const logoutButton = document.querySelector(".logoutBtn");
+const logoutButton = document.querySelector(".loginBtn");
 
 const path = location.pathname;
 
-//if ( path === "/feed/listings.html" ) {
-  // logoutButton.addEventListener('click', logoutUser);
-//} 
+if ( path === "/profile/account.html" ) {
+  logoutButton.addEventListener('click', logoutUser);
+} 
 
 function logoutUser(){
     const profile = localStorage.profile;

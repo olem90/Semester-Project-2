@@ -21,6 +21,7 @@
     const title = document.createElement("h1")
     const imageBackground = document.querySelector("#listingImageBackground");
     const titleAndDescriptionContainer = document.querySelector("#titleAndDescriptionContainer");
+    const carouselContainer = document.createElement("div");
     const currrentPriceContainer = document.querySelector("#currentPriceContainer");
     const currrentPrice = document.createElement("span");
     const description = document.createElement("span");
@@ -36,6 +37,7 @@
     title.classList.add("listingTitle", "mb-3");
     description.classList.add("listingDescription")
     listingImg.classList.add("listingImg");
+    carouselContainer.classList.add("carouselContainer");
 
     if (timeRemaining < 0) {
         timeLeft.innerText = "Auction has ended " ;
@@ -78,10 +80,20 @@
               }
   
       if (listingData.media) {
+        for ( const imageUrl of listingData.media) {
+          const carouselItem = document.createElement("div");
+          carouselItem.classList.add("carousel-item");
           listingImg.classList.add("singleListingImg");
-          listingImg.src = listingData.media;
+
+          listingImg.src = imageUrl;
           listingImg.alt = `Image from ${listingData.title}`;
+
           imageBackground.appendChild(listingImg);
+          
+          
+        }
+        
+        
       }
 
       titleAndDescriptionContainer.appendChild(title);
@@ -100,3 +112,6 @@
         parent.append(listingElement);
     }
     };
+
+
+

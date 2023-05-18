@@ -74,8 +74,6 @@ if ( path === "/feed/listings.html") {
    
 };
 
-
-
 export async function filterNewlyListed(event) {
     event.preventDefault();
     let filterValue = searchBar.value.toLowerCase();
@@ -102,8 +100,6 @@ export async function filterNewlyListed(event) {
     templates.renderListingTemplates(filteredNewListings, newestListingsContainer);
    
 };
-
-
 
 export async function filterPopularListings(event) {
     event.preventDefault();
