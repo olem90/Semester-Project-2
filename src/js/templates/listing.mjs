@@ -1,3 +1,7 @@
+import * as storage from "../storage/storage.mjs";
+
+const profileName = storage.load("profile");
+  
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const id = urlParams.get('id');
@@ -51,6 +55,13 @@
         timeLeft.innerText =`Time Left: ${timeLeftListing} |`;
         numberOfBids.innerText =  ` Bids: ${listingData._count.bids}`;
     }
+
+    if ( !profileName ) {
+      bidInput.disabled = true;
+      bidInput.style.backgroundColor = 'lightgray';
+      bidButton.disabled = true;
+      bidButton.style.backgroundColor = 'lightgray';  
+    }
     
     title.innerText = listingData.title;
     description.innerText = listingData.description;
@@ -89,11 +100,8 @@
           listingImg.alt = `Image from ${listingData.title}`;
 
           imageBackground.appendChild(listingImg);
-          
-          
+                
         }
-        
-        
       }
 
       titleAndDescriptionContainer.appendChild(title);

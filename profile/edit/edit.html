@@ -18,27 +18,30 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0   justify-content-center">
-                    <li class="nav-item active fs-5 text-center">
+                <ul class="navbar-nav mb-2 mb-lg-0 justify-content-center">
+                    <li class="nav-item fs-5 me-2 text-center">
+                        <a class="nav-link text-white" href="/feed/listings.html">Home</a>
+                    </li>
+                    <li class="nav-item active me-2 fs-5 text-center">
                         <a class="nav-link text-light" href="/listing/newestListings.html">Newly Listed</a>
                     </li>
-                    <li class="nav-item ms-2 fs-5 text-center">
+                    <li class="nav-item me-2 fs-5 text-center">
                         <a class="thumbnail nav-link text-white" href="/listing/popularListings.html">Popular Listings</a>
                     </li>
-                    <li class="nav-item ms-2 fs-5 text-center">
-                        <a class="nav-link text-white" href="/profile/account.html">Account</a>
+                    <li class="nav-item fs-5 text-center">
+                        <a class="nav-link text-white" id="accountLink" href="/profile/account.html">Account</a>
                     </li>
                 </ul>
                 <form class="searchBar d-flex" role="search">
-                    <input class="searchInput form-control shadow-none rounded-pill border border-2" type="search" placeholder="Search" aria-label="Search">
+                    <input id="searchInput" class="searchInput form-control shadow-none rounded-pill border border-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="SearchBtn text-dark border border-2" type="submit">Search</button>
-                  </form>
+                </form>
                 <li class="loginBtn fs-5 text-center">
-                    <a class="login-link text-white fw-bold fs-6 d-flex" href="/profile/login/index.html">Login</a>
+                    <a class="login-link text-white fw-bold fs-6 d-flex" href="/profile/login/login.html">Login</a>
                 </li>
               </div>
             </div>
-          </nav>
+        </nav>
     </header>
     <main>
       <div class="home-page-container container d-flex flex-column ">

@@ -3,49 +3,50 @@
     width: 220px; 
 }
 
+#navbar-nav {
+    margin-inline: auto;
+}
+
+#listingsContainer {
+    margin-top: 25px ;
+}
+
 .nav-item { 
     margin-top: 70px;
 }
 
-.navbar-nav {
-    margin-right: 110px;
-}
-
-.loginBtn {
-    background-color: rgb(24, 100, 214);
+#loginBtn, #logoutBtn {
+    background-color: rgb(228, 228, 228);
     border-radius: 10px;
+    padding: 3px;
     position: absolute;
-    right: 15%;
-    top: 20px;;
-    padding: 2px;
+    top: 10%;
+    right:15%;
+    display: flex;
+    color: rgb(83, 72, 243);
+    border: 1px solid rgb(44, 43, 43, 0.3);
+    font-size: 18px;
 }
 
-.login-link {
-    padding: 5px 8px;
+#bidBayLogo {
+    position: absolute;
+    top: 2%;
+    left: 3%;
+    font-size: 40px;
+}
+
+.login-link, .logout-link {
+    padding: 3px 8px;
     text-decoration: none;
 }
 
-.logoutBtn {
-    background-color: rgb(24, 100, 214);
-    border-radius: 10px;
+.searchBar {   
+    max-width: 500px; 
     position: absolute;
-    right: 25%;
-    top: 40px;;
-    padding: 2px;
-}
-
-.logout-link {
-    padding: 5px 8px;
-    text-decoration: none;
-
-}
-
-.searchBar {
-    position: absolute;
-    left: 34%;
-    right: 30%;
-    top: 20px;
-    max-width: 600px;
+    top: 16%;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .clickableListings {
@@ -75,20 +76,40 @@
 }
 
 @media(width < 992px) {
+    #listingsContainer {
+        margin-top: 80px ;
+    }
+
+    #nav {
+        height: 100%;
+    }
+
+    .searchBar {
+        margin-top: 10px;
+        top: 100%;
+    }
+
+    #loginBtn, #logoutBtn {
+        right: 1%;
+    }
+
     .nav-link {
         width: 180px; 
         padding: 2px !important;
     }
+    
     .nav-item {
         margin-top: 3px;
-    }
-    
-    .nav-link:hover {
-        color: rgb(20, 209, 67) !important;
     }
 
     .navbar-nav {
         margin-right: auto;
+    }
+
+    #bidBayLogo {
+        left: 13%;
+        top: 8%;
+        font-size: 40px;
     }
 }
 
@@ -170,6 +191,11 @@
 }
 
 @media (width < 800px) {
+
+    #bidBayLogo {
+        left: 15%;
+    }
+
     #listingsContainer, #activeListingsContainer, #newestListingsContainer {
         grid-template-columns: 1fr 1fr;
         grid-gap: 30px;
@@ -202,6 +228,11 @@
     }
 }
 @media (width < 580px) {
+
+    #bidBayLogo {
+        left: 18%;
+    }
+
     #listingsContainer, #newestListingsContainer, #activeListingsContainer {
         grid-template-columns: 1fr;
         grid-gap: 30px;
@@ -215,7 +246,8 @@
             width: 100%;
         }
         .all-listings {
-           width: 90%;
+           width: 100%;
+           margin-inline: auto;
         }
     }
    
@@ -561,7 +593,6 @@
 .singleListingImg {
     width: 100%;
     height: auto;
-    border: 4px solid green;
 }
 
 

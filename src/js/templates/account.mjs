@@ -1,3 +1,7 @@
+import * as storage from "../storage/storage.mjs";
+
+const profileName = storage.load("profile");
+
 export function accountTemplate(accountData) {
 
     const profileInfoContainer = document.createElement("div");
@@ -46,7 +50,6 @@ export function accountTemplate(accountData) {
      accountInfo.appendChild(credits);
     
     return profileInfoContainer;
-
 }
 
 export function renderAccountTemplate(accountData, parent) {

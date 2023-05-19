@@ -192,17 +192,85 @@ async function profileListingTemplate() {
         listeners.filterPopularListings(event);
   })
  };
+ const accountContainer = document.querySelector("#accountContainer");
 
- function isAuthenticated() {
-    if (!localStorage.getItem('token')) {
-        const accountLink = document.querySelector("#accountLink");
-        accountLink.addEventListener("click", () => {
-            alert(`<div> 
-            <span>You don't seem to have an account</span>
-            <span>Log in <a href="/profile/login/login.html">HERE</a></span>
-            
-            </div>`)
-        })
-}};
+if (!profileName && accountContainer) {
+    const accountContainer = document.querySelector("#accountContainer");
 
-//isAuthenticated();
+    accountContainer.innerHTML = `<div class="mx-auto mt-5 fs-4 d-flex justify-content-center p-5 flex-column bg bg-dark text-light">
+      <span>Seems like you are not logged in</span>
+      <span>Log in <a class="fw-bold" href="/profile/login/login.html"> HERE </a> </span>
+    </div>`;
+} 
+
+const isLoggedIn = localStorage.getItem("token");
+
+const loginButton = document.querySelector("#loginBtn");
+const logoutButton = document.querySelector("#logoutBtn");
+
+const loginLink = document.querySelector("#login-link");
+const logoutLink = document.querySelector("#logout-link");
+
+function userIsLoggedIn() {
+    if (isLoggedIn) {
+        loginButton.style.display = "none";
+        logoutButton.style.display = "flex";
+      
+        logoutLink.addEventListener("click", () => {
+          listeners.logoutUser();
+        });
+    } else {
+        loginLink.style.display = "flex";
+        logoutButton.style.display = "none";
+    }
+}
+
+if ( path !== "/profile/login/login.html" ){
+    userIsLoggedIn();
+}
+
+/*
+const isLoggedIn = localStorage.getItem("token");
+
+if ( isLoggedIn ) {
+    const loginButton = document.querySelector("#loginBtn");
+    const logoutButton = document.querySelector("#logoutBtn");
+
+    const loginLink = document.querySelector("#login-link");
+    const logoutLink = document.querySelector("#logout-link");
+    
+    logoutLink.addEventListener("click", () => {
+        listeners.logoutUser();
+    })  
+
+    loginButton.style.display = "none";
+    logoutButton.style.display = "flex";
+    
+} else if (!isLoggedIn) {
+    const logoutButton = document.querySelector("#logoutBtn");
+    const loginButton = document.querySelector("#loginBtn");
+
+    logoutButton.style.display = "none";
+    loginButton.style.display = "flex";
+
+    
+}
+*/
+/*
+if (profileName) {
+    const loginOutButton = document.querySelector("#loginOutBtn");
+
+    loginOutButton.innerHTML = `
+    <a class="login-link text-white fw-bold fs-6 d-flex border border-dark rounded-2" href="/profile/login/login.html">Logout</a>`;
+    
+    loginOutButton.addEventListener("click", () => {
+        listeners.logoutUser();
+
+    })  
+}
+     else if (!profileName) {
+     const loginOutButton = document.querySelector("#loginOutBtn");
+     loginOutButton.innerHTML = `
+     <a class="login-link text-dark fw-bold fs-6 bg border border-3" href="/profile/login/login.html">Login</a>`;
+ }
+*/

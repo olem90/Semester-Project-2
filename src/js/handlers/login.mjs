@@ -13,5 +13,3 @@ export function loginFormListener() {
         })
     }
 };
-
-console.log("dwaddwaddwawda");
