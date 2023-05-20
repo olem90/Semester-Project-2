@@ -6,9 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass src/scss:dist/css",
-    "watch": "sass --watch src/scss:dist/css & live-server",
-    "build:html": "mkdir -p dist/feed && cp feed/*.html dist/feed/ && cp listing/**/*.html dist/listing/ && cp -r profile/**/*.html dist/profile/",
-    "build:assets": "cp -r src/assets dist/"
+    "watch": "sass --watch src/scss:dist/css & live-server"
   },
   "repository": {
     "type": "git",
