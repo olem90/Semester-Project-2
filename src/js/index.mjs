@@ -34,7 +34,7 @@ if ( path === "/listing/edit/editListing.html") {
     listeners.removeListingListener();
 }
 
-if( path === "/feed/index.html") {
+if( path === "/index.html") {
     //activeListingsTemplate();
     listingsSearchFilter();
 }
