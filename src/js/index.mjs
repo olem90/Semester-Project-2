@@ -76,9 +76,11 @@ if ( path === "/listing/listing.html") {
 }
 
 async function accountTemplate() {
-    const profile = await profileMethods.getProfile(profileName.name);
+    if (isLoggedIn) {
+        const profile = await profileMethods.getProfile(profileName.name);
     const profileContainer = document.querySelector("#accountInfo");
     templates.renderAccountTemplate(profile, profileContainer);
+    }
 };
 
 async function profileListingsTemplate() {
@@ -169,8 +171,8 @@ async function profileListingTemplate() {
 if (!profileName && accountContainer) {
     const accountContainer = document.querySelector("#accountContainer");
 
-    accountContainer.innerHTML = `<div class="mx-auto fs-4 d-flex justify-content-center p-5 flex-column bg bg-dark text-light" id="loginMessage">
-      <span class="w-100">Seems like you are not logged in</span>
+    accountContainer.innerHTML = `<div class="mx-auto d-flex justify-content-center p-5 flex-column text-light" id="loginMessage">
+      <span class="w-100">Seems like you are not logged in.</span>
       <span>Log in <a class="fw-bold" href="/profile/login/login.html"> HERE </a> </span>
     </div>`;
 } 

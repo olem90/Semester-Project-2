@@ -4,6 +4,12 @@
   width: 220px;
 }
 
+#loginMessage {
+  background-color: rgb(11, 2, 61);
+  border-radius: 5px;
+  font-size: 26px;
+}
+
 #navbar-nav {
   margin-inline: auto;
 }
