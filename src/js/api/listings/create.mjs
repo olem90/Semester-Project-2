@@ -4,8 +4,6 @@ import { fetchWithToken } from "../authFetch.mjs";
 const action = "/listings";
 const method = "post";
 
-
-
 export async function createListing(listingData) {
    
     const titleInput = document.querySelector('input[name="title"]');
@@ -40,38 +38,33 @@ export async function createListing(listingData) {
    return await response.json();
 }
 
-
-
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 
 export async function createListingBid(bidAmount) {
 
-const createListingBidURL = `${API_AUCTION_URL}${action}/${id}/bids`; 
+    const createListingBidURL = `${API_AUCTION_URL}${action}/${id}/bids`; 
+    const bidInput = document.querySelector('input[name="bidInput"]');
+    const bidInputAmount = bidInput.value;
+    const bidInputAmountToNumber = parseInt(bidInputAmount);
 
-const bidInput = document.querySelector('input[name="bidInput"]');
-const bidInputAmount = bidInput.value;
-const bidInputAmountToNumber = parseInt(bidInputAmount);
+    const requestBody = {
+        "amount": bidInputAmountToNumber
+    }
 
-console.log(typeof bidAmount)
+    try {
+        const response = await fetchWithToken( createListingBidURL, {
+            method,
+            body: JSON.stringify(requestBody)
+        })
 
-const requestBody = {
-    "amount": bidInputAmountToNumber
-}
+    if ( !response.ok ) {
+        alert("oooops. Looks like something went wrong");
+    } else if ( response.ok ) {
+        alert("Your bid has been placed");
+    }
 
-try {
-    const response = await fetchWithToken( createListingBidURL, {
-        method,
-        body: JSON.stringify(requestBody)
-    })
-
-if ( !response.ok ) {
-    alert("oooops. Looks like something went wrong");
-} else if ( response.ok ) {
-    alert("Your bid has been placed");
-}
-
-return await response.json();
-} catch {errors} 
+    return await response.json();
+    } catch {errors} 
 }

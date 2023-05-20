@@ -11,14 +11,15 @@
 </head>
 <body>
     <header class="d-flex justify-content-center">
-        <nav class="navbar navbar-expand-lg bg-light text-light border border-bottom-5 w-100"> 
+        <nav id="nav" class="navbar navbar-expand-lg bg-light text-light border border-bottom-5 w-100"> 
+          <a id="bidBayLogo" class="navbar-brand" href="/feed/listings.html">BidBay</a>
             <div class="container-fluid">
-              <a class="navbar-brand text-blue fs-2" href="/feed/listings.html">BidBay</a>
-              <button class="navbar-toggler bg-light" id="navBarToggleBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Expand Navigation">
+              <button class="navbar-toggler bg-light mb-4 ms-auto" id="navBarToggleBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Expand Navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+              
               <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0 justify-content-center">
+                <ul id="navbar-nav" class="navbar-nav mb-2 mb-lg-0 justify-content-center">
                     <li class="nav-item fs-5 me-2 text-center">
                         <a class="nav-link text-white" href="/feed/listings.html">Home</a>
                     </li>
@@ -31,34 +32,30 @@
                     <li class="nav-item fs-5 text-center">
                         <a class="nav-link text-white" id="accountLink" href="/profile/account.html">Account</a>
                     </li>
-                </ul>
-                <form class="searchBar d-flex" role="search">
-                    <input id="searchInput" class="searchInput form-control shadow-none rounded-pill border border-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="SearchBtn text-dark border border-2" type="submit">Search</button>
-                </form>
+                </ul>  
               </div>
             </div>
-        </nav>
-    </header>
+          </nav>
+      </header>
 
     <div class="container mt-5 mh-100 mw-100">
         <div class="row justify-content-center mt-5">
-            <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+            <div id="loginFormContainer" class="col-12 col-md-6 col-lg-5 col-xl-4">
                 <h1 class="fw-bold mt-3 mb-3">Log In</h1>
-                <span>New here? <a href="/profile/register/register.html">Create an account</a></span>
+                <span class="newHere">New here? <a class="fw-bold" href="/profile/register/register.html">Create an account</a></span>
                 <form class="d-flex flex-column fs-4 mt-5" id="loginForm" href="/profile/index.html">
-                    <div class="form-group">
-                        <label class="opacity-75 form-label" for="Email">Email</label>
-                        <input class="form-control opacity-75 rounded-2 border-secondary" name="email" type="email" placeholder="Type your email" id="email" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only @(stud.)noroff.no domains are allowed to register">
+                    <div class="loginFormGroup form-group">
+                        <label class="form-label" for="Email">Email</label>
+                        <input class="form-control rounded-2 border-secondary" name="email" type="email" placeholder="Type your email" id="email" required pattern="^[\w\-.]+@(stud.)?noroff.no$" title="Only @(stud.)noroff.no domains are allowed to register">
                     </div>
-                    <div class="form-group">
-                        <label class="opacity-75 mt-3" for="Password">Password</label>
-                        <input class="passwordInput form-control opacity-75 rounded-2 border-secondary" name="password" type="password" placeholder="Type your password" required minlength="8">
+                    <div class="loginFormGroup form-group">
+                        <label class="form-label" for="Password">Password</label>
+                        <input class="passwordInput form-control rounded-2 border-secondary" name="password" type="password" placeholder="Type your password" required minlength="8">
                     </div>
-                    <span class="forgot-pw text-end mt-1 fs-5">
-                        <a href="">Forgot password?</a>
+                    <span class="forgot-pw text-end fs-5">
+                        <a href="#">Forgot password?</a>
                     </span>
-                    <button class="loginFormBtn rounded-4 mt-5 p-2 border-0 text-white fw-bold btn btn-primary fs-4 d-flex justify-content-center align-items-center">Login</button>        
+                    <button class="loginFormBtn rounded-2 mt-3 p-2 border-0 text-white fw-bold fs-4 d-flex justify-content-center align-items-center">Login</button>        
                 </form>
             </div>
         </div>

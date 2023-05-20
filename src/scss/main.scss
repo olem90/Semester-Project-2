@@ -7,23 +7,141 @@
     margin-inline: auto;
 }
 
+.open {
+    display: flex;
+}
+.closed {
+    display: none;
+}
+
+#myListing-h1 {
+    margin-top: 20px;
+}
+
+.registerFormGroup > input {
+    max-height: 35px;
+}
+
+.registerFormGroup > label {
+    font-size: 20px;
+}
+
+#registerForm {
+    min-width: 90%;
+}
+
+#regFormContainer, #loginFormContainer {
+    min-width: 70%;
+    max-width: 800px;
+}
+
+.profileListingImg-container {
+    max-width: 580px;
+}
+
+#updateListingContainer {
+    max-width: 60%; 
+    border: 2px solid gold;
+}
+
+.newHere {
+    font-size: 17px;
+}
+
+#updateListing {
+    max-width: 800px;
+}
+
+.forgot-pw > a {
+    font-size: 18px;
+}
+
+.loginFormBtn {
+    background-color: rgb(15, 10, 82);
+}
+
+#registerButton {
+    max-height: 42px;
+    font-size: 20px;
+    background-color: rgb(15, 10, 82);
+}
+
 #listingsContainer {
     margin-top: 25px ;
+}
+
+#loginMessage {
+    margin-top: 120px;
+}
+
+#listingContainer {
+    width: 100%;
+    margin-top: 30px;
+}
+
+#itemContainer {
+    max-width: 300px !important;
+}
+
+#listingBtn {
+    font-size: 20px;
+}
+
+#specificProfileListingsContainer {
+    display: flex;
+    justify-content: center;
+    min-width: 96%;
+    margin-top: 20px;
+}
+#singleProfileListingContainer  {
+    margin-inline: auto;
+}
+
+#deleteProfileListingBtn {
+    font-size: 20px;
+}
+
+.imageBackground  {
+    max-height: 300px;
+    width: 90%;
+}
+.singleListingImg {
+    min-width: 90%;
+    max-height: 300px;
+}
+
+.profileListingImage  {
+    min-width: 90%;
+    max-width: 400px !important;
+}
+
+#profileListingBids {
+    min-width: 70%;
+    max-width: 72%;
+}
+
+.profileListingInfoContainer {
+    width: 100%;
+    max-width: 600px;
 }
 
 .nav-item { 
     margin-top: 70px;
 }
 
+.profileListingImgContainer {
+    flex: auto;
+}
+
 #loginBtn, #logoutBtn {
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(16, 25, 112);
     border-radius: 10px;
     padding: 3px;
     position: absolute;
     top: 10%;
     right:15%;
     display: flex;
-    color: rgb(83, 72, 243);
+    color: rgb(255, 255, 255);
     border: 1px solid rgb(44, 43, 43, 0.3);
     font-size: 18px;
 }
@@ -35,10 +153,16 @@
     font-size: 40px;
 }
 
+nav {
+    margin-bottom: 30px;
+}
+
 .login-link, .logout-link {
     padding: 3px 8px;
     text-decoration: none;
 }
+
+
 
 .searchBar {   
     max-width: 500px; 
@@ -54,6 +178,38 @@
     min-height: 480px;
     max-height: 480px;
     overflow: hidden;
+}
+
+#bidHistoryContainer {
+    min-width: 100%;
+}
+
+#bidHistoryContainer2 {
+    min-width: 100%;
+   
+}
+
+#listingInfoSectionContent {
+    display: flex;
+    min-width: 70%;
+    justify-items: center;
+    justify-content: center;
+    max-width: 800px !important;
+    padding: 10px;
+}
+
+#biddingInfo {
+    min-width: 96%;
+}
+
+.listingTitle  {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.listingDescription {
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 .listingCard {
@@ -75,50 +231,12 @@
     transition-delay: 40ms;
 }
 
-@media(width < 992px) {
-    #listingsContainer {
-        margin-top: 80px ;
-    }
-
-    #nav {
-        height: 100%;
-    }
-
-    .searchBar {
-        margin-top: 10px;
-        top: 100%;
-    }
-
-    #loginBtn, #logoutBtn {
-        right: 1%;
-    }
-
-    .nav-link {
-        width: 180px; 
-        padding: 2px !important;
-    }
-    
-    .nav-item {
-        margin-top: 3px;
-    }
-
-    .navbar-nav {
-        margin-right: auto;
-    }
-
-    #bidBayLogo {
-        left: 13%;
-        top: 8%;
-        font-size: 40px;
-    }
-}
-
 #listingsContainer, #activeListingsContainer, #newestListingsContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height: auto;
     grid-gap: 30px 20px;
-    
+    margin-top: 20px;
 }
 
 #profileListingsContainer {
@@ -189,7 +307,96 @@
         }      
     }
 }
+@media(width < 992px) {
 
+    #listingsContainer, #activeListingsContainer, #newestListingsContainer {
+        margin-top: 80px;
+    }
+
+    #myListing-h1 {
+        margin-top: 80px;
+    }
+    #navbar-nav {
+        margin-top: 20px;
+        .nav-link {
+            background-color: #f8f9fa;
+            color: black !important;
+            text-align: left;
+            width: fit-content;
+        }
+        
+    }
+
+    #loginBtn, #logoutBtn {
+        background-color: rgb(16, 25, 112);
+        border-radius: 10px;
+        padding: 3px;
+        position: absolute;
+        top: 40%;
+        display: flex;
+        color: rgb(255, 255, 255);
+        border: 1px solid rgb(44, 43, 43, 0.3);
+        font-size: 18px;
+    }
+    
+    #bidAmountInput {
+        max-height: 30px;
+        max-width: 100px;
+    }
+    #listingContainer {
+        min-width: 96%;
+    }
+    #listingsContainer {
+        margin-top: 80px ;
+    }
+
+    #nav {
+        height: 100%;
+    }
+
+    .searchBar {
+        margin-top: 10px;
+        top: 100%;
+    }
+
+    #loginBtn, #logoutBtn {
+        right: 1%;
+    }
+
+    .nav-link {
+        width: 180px; 
+        padding: 2px !important;
+    }
+    
+    .nav-item {
+        margin-top: 3px;
+    }
+
+    .navbar-nav {
+        margin-right: auto;
+    }
+
+    #bidBayLogo {
+        left: 13%;
+        top: 8%;
+        font-size: 40px;
+    }
+    #listingImgContainer {
+        display: flex;
+    }
+    #listingImageBackground {
+        max-width: 80%;
+    }
+    .singleListingImg {
+        min-width: 80%;
+    }
+    .profileListingImage {
+        min-width: 80%;
+    }
+    .imageBackground  {
+        min-width: 90%;
+    }
+}
 @media (width < 800px) {
 
     #bidBayLogo {
@@ -227,7 +434,100 @@
         }      
     }
 }
+
+@media (width < 740px) {
+
+    .registerFormGroup > label {
+        font-size: 18px;
+    }
+
+    #listingImageBackground {
+        max-width: 300px;
+
+        img {
+            max-width: 280px
+        }
+    }
+    .profileListingInfoContainer {
+        min-width: 50%;
+    }
+    .profileListingImg-container {
+        min-width: 50%;
+    }
+    .timeAndBidsContainer {
+        min-width: 100%;
+    }
+}
+@media (width < 625px) {
+    .singleProfileListingContainer  {
+        flex-direction: column !important;
+
+        .profileListingImg-container {
+            min-width: 90%;
+        }
+
+        .profileListingInfoContainer {
+            min-width: 90%;
+        }
+
+        .editProfileListing {
+            margin-bottom: 15px;
+        }
+    }
+
+    #deleteProfileListingBtn {
+        font-size: 20px;
+    }
+
+    #profileListingBids {
+        min-width: 88%;
+    }
+
+    #listingContainer {
+        flex-direction: column;
+        max-width: 80%;
+        margin-top: 160px;
+
+        #listingInfoContainer {
+            margin-inline: auto;
+            min-height: 90%;
+            min-width: 90%;
+            margin-top: 30px;
+        }
+
+        .listingTitle  {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+        #listingImageBackground {
+            height: 100%;
+        }
+
+        #listingImageBackground {
+            min-width: 90%;
+            margin-inline: auto !important;
+
+            img {
+                min-width: 80%;
+            }
+        }
+    }
+    #listingInfoSection {
+        margin-top: 180px !important;
+        
+    }
+    #listingInfoSectionContent {
+        min-width: 80%;
+        margin-top: 10px;
+        margin-inline: 10px;
+    }
+
+}
 @media (width < 580px) {
+    #listingBtn {
+        font-size: 16px;
+    }
 
     #bidBayLogo {
         left: 18%;
@@ -267,8 +567,63 @@
            width: 90%;
         }      
     }
-
+    #listingInfoSectionContent {
+        min-width: 90%;
+    }
 }
+
+@media (width < 460px) {
+    #placeBidButton {
+        max-width: 90%;
+    }
+
+    #titleAndDescriptionContainer {
+        max-width: 92%;
+    }
+
+    .listingDescription {
+        border: 2px solid gold;
+        font-size: 18px;
+    }
+    #timeLeftContainer {
+        max-width: 90%;
+    }
+
+    #deleteProfileListingBtn {
+        font-size: 16px;
+    }
+
+    #biddingInfo {
+        font-size: 13px;
+    }
+
+    #bidHistoryContainer {
+        font-size: 14px;
+    }
+
+    #listingInfoSection > a {
+        font-size: 18px;    
+    }
+
+    .biddingRowAmount {
+        display: flex;
+        justify-content: end !important;
+    }
+    .account-h1 {
+        width: 60%;
+        max-width: 80% !important;
+        margin-left: 10px;
+    }
+    .accountInfo > span {
+        font-size: 18px !important;
+    }
+    .bidsValues, .profileListingBids  {
+        font-size: 14px;
+    }
+    
+}
+
+
 .all-listings {
     box-shadow: 0px 0px 1px rgb(224, 223, 224);
     min-width: 100%;
@@ -313,13 +668,14 @@
 }
 
 .account-h1 {
-    width: 700px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: 10px;
 }
 
 .accountImage {
-    width: 400px;
-    margin-right: 10px;
-    height: 100%;
+    width: 80%;
+    max-width: 500px;
 }
 
 .profileInfoContainer {
@@ -456,14 +812,14 @@
         background-color: rgb(240, 240, 240);
         width: 400px;
         max-width: 640px;
-        height: 100%;
+        height: 92%;
         margin-inline: auto;
         display: flex;
         justify-content: center;
 
         .listingImg {
             width: 300px;
-            height: 100%;
+            min-height: 100%;
             object-fit: cover;
         }
     }
@@ -474,7 +830,11 @@
     background-color: rgb(89, 0, 255);
     color: #fff;
     font-weight: bold;
-    margin-top: auto;
+    margin-top: 30px;
+    padding-block: 10px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .listingBidInputContainer {
     width: 100%;
@@ -485,11 +845,11 @@
     margin-left: 80px;
 }
 #titleAndDescriptionContainer{
-    margin-bottom: 30px;
+    font-size: 10px ;
 }
 
 #timeLeftContainer {
-    margin-bottom:40px;
+    margin-bottom:30px;
 }
 
 .auction-ended {
@@ -580,20 +940,6 @@
     
 }
 
-.carouselContainer {
-    display: flex;
-    overflow: hidden;
-    border: 2px solid gold;
-  }
-  
-.carousel-item {
-    border: 2px solid gold;
-}
-  
-.singleListingImg {
-    width: 100%;
-    height: auto;
-}
 
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

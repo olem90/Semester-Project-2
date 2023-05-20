@@ -5,6 +5,7 @@ import * as profileMethods from "./api/profiles/index.mjs";
 import * as templates from "./templates/index.mjs";
 
 const profileName = storage.load("profile");
+const isLoggedIn = localStorage.getItem("token");
 
 const path = location.pathname;
 
@@ -62,6 +63,10 @@ if( path === "/profile/account.html" ) {
      listeners.getListingInfo();
 }
 
+if ( path === "/listing/listing.html" && isLoggedIn) {
+    listeners.getListingInfo();
+}
+
 if ( path === "/profile/profileListings/specificProfileListing.html") {
     profileListingTemplate();
 }
@@ -69,18 +74,6 @@ if ( path === "/profile/profileListings/specificProfileListing.html") {
 if ( path === "/listing/listing.html") {
        listeners.createBidListener();
 }
-
-// async function listingsTemplates() {
-//     const listings = await listingMethods.getListings();
-//     const container = document.querySelector("#listingsContainer");
-//     templates.renderListingTemplates(listings, container);
-// };
-
-// async function activeListingsTemplate() {
-//     const activeListings = await listingMethods.getActiveListings();
-//     const container = document.querySelector("#listingsContainer");
-//     templates.renderListingTemplates(activeListings, container);
-// };
 
 async function accountTemplate() {
     const profile = await profileMethods.getProfile(profileName.name);
@@ -105,27 +98,6 @@ async function profileListingTemplate() {
     const listingContainer = document.querySelector("#listingContainer");
     templates.renderListingTemplate(listing, listingContainer);
  };
-
-//  async function SortedByHighestBidCountTemplate() {
-//     const listings = await listingMethods.getActiveListings();
-//     function sortListingsByBids(a, b) {
-//         return b._count.bids - a._count.bids;
-//       }
-//     const sortedListingsByBids = listings.sort(sortListingsByBids);
-//     const listingContainer = document.querySelector("#activeListingsContainer");
-//     templates.renderListingTemplates(sortedListingsByBids, listingContainer);
-
-//  };
-
-//  async function SortedByNewestTemplate() {
-//     const listings = await listingMethods.getActiveListings();
-//     function sortListingsByNewest(a, b) {
-//         return new Date (b.created) - new Date (a.created);
-//       }
-//     const sortedListingsByNewest = listings.sort(sortListingsByNewest);
-//     const listingContainer = document.querySelector("#newestListingsContainer");
-//     templates.renderListingTemplates(sortedListingsByNewest, listingContainer);
-//  };
 
  async function listingsSearchFilter() {
     const listings = await listingMethods.getActiveListings();
@@ -197,13 +169,11 @@ async function profileListingTemplate() {
 if (!profileName && accountContainer) {
     const accountContainer = document.querySelector("#accountContainer");
 
-    accountContainer.innerHTML = `<div class="mx-auto mt-5 fs-4 d-flex justify-content-center p-5 flex-column bg bg-dark text-light">
-      <span>Seems like you are not logged in</span>
+    accountContainer.innerHTML = `<div class="mx-auto fs-4 d-flex justify-content-center p-5 flex-column bg bg-dark text-light" id="loginMessage">
+      <span class="w-100">Seems like you are not logged in</span>
       <span>Log in <a class="fw-bold" href="/profile/login/login.html"> HERE </a> </span>
     </div>`;
 } 
-
-const isLoggedIn = localStorage.getItem("token");
 
 const loginButton = document.querySelector("#loginBtn");
 const logoutButton = document.querySelector("#logoutBtn");
@@ -212,9 +182,18 @@ const loginLink = document.querySelector("#login-link");
 const logoutLink = document.querySelector("#logout-link");
 
 function userIsLoggedIn() {
+
+    if(!isLoggedIn) {
+        loginButton.style.display = "flex";
+        logoutButton.style.display = "none";
+    } else {
+        loginLink.style.display = "none";
+        logoutButton.style.display = "flex";
+    }
+
     if (isLoggedIn) {
         loginButton.style.display = "none";
-        logoutButton.style.display = "flex";
+        
       
         logoutLink.addEventListener("click", () => {
           listeners.logoutUser();
@@ -229,48 +208,30 @@ if ( path !== "/profile/login/login.html" ){
     userIsLoggedIn();
 }
 
-/*
-const isLoggedIn = localStorage.getItem("token");
+const loginBtn = document.querySelector("#loginBtn");
+const logoutBtn = document.querySelector("#logoutBtn");
+const navBarToggleBtn = document.querySelector("#navBarToggleBtn");
 
-if ( isLoggedIn ) {
-    const loginButton = document.querySelector("#loginBtn");
-    const logoutButton = document.querySelector("#logoutBtn");
+navBarToggleBtn.addEventListener("click", () => {
+    if (!navBarToggleBtn.classList.contains("collapsed") && isLoggedIn) {
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "flex";
+    } else if (navBarToggleBtn.classList.contains("collapsed") && isLoggedIn) {
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "none";
+    }
 
-    const loginLink = document.querySelector("#login-link");
-    const logoutLink = document.querySelector("#logout-link");
-    
-    logoutLink.addEventListener("click", () => {
-        listeners.logoutUser();
-    })  
+    else if (!navBarToggleBtn.classList.contains("collapsed") && !isLoggedIn) {
+        loginBtn.style.display = "flex";
+        logoutBtn.style.display = "none";
+    } else {
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "none";
+    }
+})
 
-    loginButton.style.display = "none";
-    logoutButton.style.display = "flex";
-    
-} else if (!isLoggedIn) {
-    const logoutButton = document.querySelector("#logoutBtn");
-    const loginButton = document.querySelector("#loginBtn");
-
-    logoutButton.style.display = "none";
-    loginButton.style.display = "flex";
-
-    
+if (!isLoggedIn && path === "/listing/listing.html") {
+    const listingInfoSection = document.querySelector("#listingInfoSection");
+    listingInfoSection.innerHTML = "";
+    console.log(listingInfoSection);
 }
-*/
-/*
-if (profileName) {
-    const loginOutButton = document.querySelector("#loginOutBtn");
-
-    loginOutButton.innerHTML = `
-    <a class="login-link text-white fw-bold fs-6 d-flex border border-dark rounded-2" href="/profile/login/login.html">Logout</a>`;
-    
-    loginOutButton.addEventListener("click", () => {
-        listeners.logoutUser();
-
-    })  
-}
-     else if (!profileName) {
-     const loginOutButton = document.querySelector("#loginOutBtn");
-     loginOutButton.innerHTML = `
-     <a class="login-link text-dark fw-bold fs-6 bg border border-3" href="/profile/login/login.html">Login</a>`;
- }
-*/

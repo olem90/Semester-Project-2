@@ -27,9 +27,6 @@ export async function updateProfileListener() {
             profile.name = name;
             profile.email = email;
 
-            console.log(profile)
-
-            //send to api
             if (getApiData.updateProfile) {
                 getApiData.updateProfile(profile);
 

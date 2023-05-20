@@ -38,7 +38,7 @@ const profileName = storage.load("profile");
     const bidInput = document.querySelector("#bidAmountInput");
     const bidButton = document.querySelector("#placeBidButton");
 
-    title.classList.add("listingTitle", "mb-3");
+    title.classList.add("listingTitle");
     description.classList.add("listingDescription")
     listingImg.classList.add("listingImg");
     carouselContainer.classList.add("carouselContainer");

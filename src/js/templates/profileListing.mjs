@@ -8,8 +8,6 @@ export function ProfileListingTemplate(listing) {
     const profileListing = listing.find(
         (listing) => listing.id === id);
 
-        console.log(profileListing);
-
     const dateListingEnds = profileListing.endsAt;
 
     const now = new Date().getTime();
@@ -51,18 +49,19 @@ export function ProfileListingTemplate(listing) {
     const bidAmount = document.createElement("span");
     const bidTime = document.createElement("span");
     
-    pageContainer.classList.add("singleProfileListingContainer", "d-flex", "flex-row", "mt-4");
+    pageContainer.classList.add("singleProfileListingContainer", "d-flex", "flex-md-row", "mt-4");
     imageContainer.classList.add("profileListingImg-container", "d-flex", "flex-column", "justify-content-center");
     listingInfoContainer.classList.add("profileListingInfoContainer", "ms-3");
-    currrentPriceContainer.classList.add("mt-4");
+    currrentPriceContainer.classList.add("mt-4", "fw-bold");
     timeAndBidsContainer.classList.add("timeAndBidsContainer" ,"border", "border-start-0", "border-end-0", "border-top-2", "border-bottom-2", "d-flex", "flex-row", "mt-5");
     numberOfBids.classList.add("ms-3");
     minimumBidContainer.classList.add("mt-3");
     makeYourBidContainer.classList.add("mt-3");
     editProfileListing.classList.add("editProfileListing");
-    editProfileListingContainer.classList.add("editProfileListingContainer");
+    editProfileListingContainer.classList.add("editProfileListingContainer", "ms-4", "mt-2");
     bidsValues.classList.add("bidsValues", "border", "border-end-0", "border-start-0", "border-bottom-5", "border-top-0");
-    profileListingBids.classList.add("profileListingBids", "border", "border-bottom-3","border-end-0", "border-start-0", "border-top-0" )
+    profileListingBids.classList.add("profileListingBids", "border", "border-bottom-3","border-end-0", "border-start-0", "border-top-0"); 
+    listingImg.classList.add("profileListingImage");
     
     timeLeft.innerText =`Time Left: ${timeLeftListing} |`;
     numberOfBids.innerText =  `Bids: ${profileListing._count.bids}`;
@@ -114,6 +113,7 @@ export function ProfileListingTemplate(listing) {
 
     pageContainer.appendChild(imageContainer);
     pageContainer.appendChild(listingInfoContainer);
+    
 
     if (profileListing.media) {
         listingImg.classList.add("singleListingImg");
@@ -121,6 +121,7 @@ export function ProfileListingTemplate(listing) {
         listingImg.alt = `Image from ${profileListing.title}`;
         imageContainer.appendChild(imageBackground);
         imageBackground.appendChild(listingImg);
+        imageContainer.appendChild(editProfileListingContainer);
     }
 
     listingInfoContainer.appendChild(title);
@@ -128,7 +129,7 @@ export function ProfileListingTemplate(listing) {
     listingInfoContainer.appendChild(timeAndBidsContainer);
     listingInfoContainer.appendChild(currrentPriceContainer);
     listingInfoContainer.appendChild(minimumBidContainer);
-    listingInfoContainer.appendChild(editProfileListingContainer);
+    
     editProfileListingContainer.appendChild(editProfileListing);
     timeAndBidsContainer.appendChild(timeLeft);
     timeAndBidsContainer.appendChild(numberOfBids);

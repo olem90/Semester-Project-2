@@ -11,14 +11,15 @@
 </head>
 <body>
   <header class="d-flex justify-content-center">
-    <nav class="navbar navbar-expand-lg bg-light text-light border border-bottom-5 w-100"> 
+    <nav id="nav" class="navbar navbar-expand-lg bg-light text-light border border-bottom-5 w-100"> 
+      <a id="bidBayLogo" class="navbar-brand" href="/feed/listings.html">BidBay</a>
         <div class="container-fluid">
-          <a class="navbar-brand text-blue fs-2" href="/feed/listings.html">BidBay</a>
-          <button class="navbar-toggler bg-light" id="navBarToggleBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Expand Navigation">
+          <button class="navbar-toggler bg-light mb-4" id="navBarToggleBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Expand Navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          
           <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0 justify-content-center">
+            <ul id="navbar-nav" class="navbar-nav mb-2 mb-lg-0 justify-content-center">
                 <li class="nav-item fs-5 me-2 text-center">
                     <a class="nav-link text-white" href="/feed/listings.html">Home</a>
                 </li>
@@ -32,17 +33,21 @@
                     <a class="nav-link text-white" id="accountLink" href="/profile/account.html">Account</a>
                 </li>
             </ul>
-            <form class="searchBar d-flex" role="search">
-                <input id="searchInput" class="searchInput form-control shadow-none rounded-pill border border-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="SearchBtn text-dark border border-2" type="submit">Search</button>
-            </form>
-            <li class="loginBtn fs-5 text-center">
-                <a class="login-link text-white fw-bold fs-6 d-flex" href="/profile/login/login.html">Login</a>
-            </li>
+            
+            <div id="loginBtn" class="loginBtn me-2 text-center">
+              <a id="login-link"class="login-link text-white fw-bold" href="/profile/login/login.html">Login</a>
+            </div>   
+            <div id="logoutBtn" class="logoutBtn text-center">
+              <a id="logout-link" class="logout-link text-white fw-bold" href="/profile/login/login.html">Logout</a>
+            </div>     
           </div>
+          <form class="searchBar d-flex" role="search">
+            <input id="searchInput" class="searchInput form-control shadow-none rounded-pill border border-2 " type="search" placeholder="Search" aria-label="Search">
+            <button id="searchInputBtn" class="SearchBtn text-dark border border-2" type="submit">Search</button>
+        </form>
         </div>
       </nav>
-</header>
+  </header>
     <main>
       <div class="container d-flex flex-column mt-5 mx-auto" id="createListingContainer ">
                     

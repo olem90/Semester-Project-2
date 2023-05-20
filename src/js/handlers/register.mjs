@@ -11,11 +11,9 @@ export function registerFormListener() {
             const profile = Object.fromEntries(formData.entries());
         
             //send to api
-           if (register) {
+            if (register) {
             register(profile);
-            console.log(profile);
-           }
+            }
         })
     } 
 }
-console.log("connected");

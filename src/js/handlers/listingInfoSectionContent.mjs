@@ -1,10 +1,10 @@
 import { getListing } from "../api/listings/get.mjs";
 
-
-
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
+
+const isLoggedIn = localStorage.getItem("token");
 
 export async function getListingInfo() {
 
@@ -24,8 +24,8 @@ let sellerWins = 0;
 if ( listingInfo.seller.wins.length > 0) {
     sellerWins = listingInfo.seller.wins;
 }
-
-itemInfo.addEventListener("click", (event) => {
+if (isLoggedIn) {
+  itemInfo.addEventListener("click", (event) => {
     event.preventDefault();
 
     sellerInfo.style.fontWeight = "normal";
@@ -60,7 +60,10 @@ itemInfo.addEventListener("click", (event) => {
     </div>`
 })
 
-sellerInfo.addEventListener("click", (event) => {
+
+}
+if (isLoggedIn) {
+  sellerInfo.addEventListener("click", (event) => {
     event.preventDefault();
 
     sellerInfo.style.fontWeight = "bold";
@@ -89,7 +92,10 @@ sellerInfo.addEventListener("click", (event) => {
     </div>`
 })
 
-bidInfo.addEventListener("click", (event) => {
+
+}
+if (isLoggedIn) {
+  bidInfo.addEventListener("click", (event) => {
     event.preventDefault();
     sellerInfo.style.fontWeight = "normal";
     itemInfo.style.fontWeight = "normal";
@@ -100,8 +106,8 @@ bidInfo.addEventListener("click", (event) => {
     sellerInfo.style.textDecoration = "none";
 
     contentContainer.innerHTML = `
-    <div class="mt-4 d-flex justify-content-center">
-      <div class="border border-end-0 w-100 border-start-0 border-buttom-3 border-top-0 mb-2" id="bidHistoryContainer">
+    <div class="mt-4 d-flex">
+      <div class="mx-auto d-flex justify-content-center border border-end-0 border-start-0 border-buttom-3 border-top-0 mb-2" id="bidHistoryContainer">
         <div class="d-flex justify-content-between w-100">
           <span><strong>Bidder</strong></span> <span><strong>Bid Amount</strong></span><span><strong>Time of last bid</strong></span>
         </div>
@@ -117,13 +123,13 @@ bidInfo.addEventListener("click", (event) => {
         const bidTime = new Date(sortedBid.created).toLocaleString();
 
         contentContainer.innerHTML +=
-      `<div class="d-flex flex-column" id="bidHistoryContainer2">
-        <div class="mb-2 border border-end-0 border-start-0 border-top-0" id="biddingInfo">
+      `<div class="d-flex flex-column mx-auto w-100 " id="bidHistoryContainer2">
+        <div class="mb-2 border border-end-0 border-start-0 border-top-0 w-100" id="biddingInfo">
             <div class="biddingRow-name d-flex">
                 <span id="bidderName">${bidderName}</span>
             </div>
 
-            <div class="biddingRow-amount d-flex justify-content-center">
+            <div class="biddingRow-amount d-flex justify-content-sm-center justify-content-end">
                 <span>${bidAmount}</span>
             </div>
 
@@ -135,6 +141,9 @@ bidInfo.addEventListener("click", (event) => {
          `;
 }
 })
+
+}
+
 
       
 

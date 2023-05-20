@@ -9,8 +9,6 @@ export function createListingListener() {
             const form = event.target;
             const formData = new FormData(form);
             const listing = Object.fromEntries(formData.entries());
-
-            console.log(listing)
            
             //send to api          
             if (createListing) {
@@ -18,7 +16,7 @@ export function createListingListener() {
                 
                 setTimeout(function routeHome() {
             {
-                //window.location.replace("/profile/profileListings/profileListings.html");                  
+                window.location.replace("/profile/profileListings/profileListings.html");                  
             }          
             },1000);
             }
