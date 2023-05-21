@@ -103,7 +103,7 @@ async function profileListingTemplate() {
 
  async function SortedByNewestTemplate() {
     const listing = await listingMethods.getActiveListings();
-    const listingsContainer = document.querySelector("#listingsContainer");
+    const listingsContainer = document.querySelector("#newestListingsContainer");
     templates.renderListingTemplate(listing, listingsContainer);
  };
 
