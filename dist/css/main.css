@@ -49,7 +49,6 @@
 
 #updateListingContainer {
   max-width: 60%;
-  border: 2px solid gold;
 }
 
 .newHere {
@@ -128,6 +127,7 @@
 #profileListingBids {
   min-width: 70%;
   max-width: 72%;
+  margin-bottom: 20px;
 }
 
 .profileListingInfoContainer {
@@ -253,7 +253,7 @@ nav {
   grid-gap: 30px 20px;
 }
 
-@media (width < 1200px) {
+@media (max-width: 1200px) {
   #listingsContainer, #newestListingsContainer, #activeListingsContainer {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px 30px;
@@ -284,7 +284,7 @@ nav {
     width: 90%;
   }
 }
-@media (width < 1000px) {
+@media (max-width: 1000px) {
   #listingsContainer {
     width: 100%;
   }
@@ -308,7 +308,7 @@ nav {
     width: 90%;
   }
 }
-@media (width < 992px) {
+@media (max-width: 992px) {
   #listingsContainer, #activeListingsContainer, #newestListingsContainer {
     margin-top: 80px;
   }
@@ -386,7 +386,7 @@ nav {
     min-width: 90%;
   }
 }
-@media (width < 800px) {
+@media (max-width: 800px) {
   #bidBayLogo {
     left: 15%;
   }
@@ -418,7 +418,7 @@ nav {
     width: 90%;
   }
 }
-@media (width < 740px) {
+@media (max-width: 740px) {
   .registerFormGroup > label {
     font-size: 18px;
   }
@@ -438,7 +438,7 @@ nav {
     min-width: 100%;
   }
 }
-@media (width < 625px) {
+@media (max-width: 625px) {
   .singleProfileListingContainer {
     flex-direction: column !important;
   }
@@ -492,7 +492,7 @@ nav {
     margin-inline: 10px;
   }
 }
-@media (width < 580px) {
+@media (max-width: 580px) {
   #listingBtn {
     font-size: 16px;
   }
@@ -534,7 +534,7 @@ nav {
     min-width: 90%;
   }
 }
-@media (width < 460px) {
+@media (max-width: 460px) {
   #placeBidButton {
     max-width: 90%;
   }
@@ -542,7 +542,6 @@ nav {
     max-width: 92%;
   }
   .listingDescription {
-    border: 2px solid gold;
     font-size: 18px;
   }
   #timeLeftContainer {

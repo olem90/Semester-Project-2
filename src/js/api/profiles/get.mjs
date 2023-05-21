@@ -2,7 +2,6 @@ import { API_AUCTION_URL } from "../constants.mjs";
 import { fetchWithToken } from "../authFetch.mjs";
 import * as storage from "../../storage/storage.mjs";
 
-
 const action = "/profiles";
 const profileName = storage.load("profile");
 

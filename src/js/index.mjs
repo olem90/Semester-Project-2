@@ -107,7 +107,7 @@ async function profileListingTemplate() {
 //     templates.renderListingTemplate(listing, listingsContainer);
 //  };
 
- async function listingsSearchFilter() {
+async function listingsSearchFilter() {
     const listings = await listingMethods.getActiveListings();
     const listingsContainer = document.querySelector("#listingsContainer");
     templates.renderListingTemplates(listings, listingsContainer);
