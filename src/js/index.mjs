@@ -49,7 +49,7 @@ if ( path === "/listing/newestListings.html" || path === "/listing/newestlisting
     SortedByNewestSearchFilter();
 }
 
-if ( path === "/profile/profileListings/profileListings.html" || path === "/profile/profilelistings/profilelistings.html"){
+if ( path === "/profile/profileListings/profileListings.html" || path === "/profile/profilelistings/profilelistings.html" || path === "/profile/profilelistings/profilelistings"){
     profileListingsTemplate();
     profileListingsSearchFilter();
 }
