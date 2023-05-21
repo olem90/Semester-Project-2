@@ -8,7 +8,7 @@ const profileName = storage.load("profile");
 const isLoggedIn = localStorage.getItem("token");
 
 const path = location.pathname;
-
+console.log(path);
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
@@ -39,13 +39,13 @@ if( path === "/index.html") {
     listingsSearchFilter();
 }
 
-if( path === "/listing/popularListings.html" ) {
+if( path === "/listing/popularListings.html" || "/listing/popularlistings.html") {
     //SortedByHighestBidCountTemplate();
     SortedByPopularSearchFilter();
 }
 
-if ( path === "/listing/newestListings.html") {
-    // SortedByNewestTemplate();
+if ( path === "/listing/newestListings.html" || path === "/listing/newestlistings") {
+    //SortedByNewestTemplate();
     SortedByNewestSearchFilter();
 }
 
