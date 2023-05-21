@@ -45,7 +45,7 @@ if( path === "/listing/popularListings.html" || "/listing/popularlistings.html")
 }
 
 if ( path === "/listing/newestListings.html" || path === "/listing/newestlistings") {
-    //SortedByNewestTemplate();
+    SortedByNewestTemplate();
     SortedByNewestSearchFilter();
 }
 
@@ -99,6 +99,12 @@ async function profileListingTemplate() {
     const listing = await listingMethods.getListing(id);
     const listingContainer = document.querySelector("#listingContainer");
     templates.renderListingTemplate(listing, listingContainer);
+ };
+
+ async function SortedByNewestTemplate() {
+    const listing = await listingMethods.getActiveListings();
+    const listingsContainer = document.querySelector("#listingsContainer");
+    templates.renderListingTemplate(listing, listingsContainer);
  };
 
  async function listingsSearchFilter() {
