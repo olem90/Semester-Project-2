@@ -29,7 +29,7 @@ export async function login(profile) {
             
             setTimeout(function routeHome() {
                 {
-                    window.location.replace("/feed/listings.html");
+                    window.location.replace("/index.html");
                 }              
            },1000);
         } else {
