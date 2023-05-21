@@ -83,11 +83,11 @@ async function accountTemplate() {
     }
 };
 
-async function profileListingsTemplate() {
-   const profileListings = await profileMethods.getProfilesListings();
-   const profileListingsContainer = document.querySelector("#profileListingsContainer");
-   templates.renderProfileListingTemplates(profileListings, profileListingsContainer);
-};
+// async function profileListingsTemplate() {
+//    const profileListings = await profileMethods.getProfilesListings();
+//    const profileListingsContainer = document.querySelector("#profileListingsContainer");
+//    templates.renderProfileListingTemplates(profileListings, profileListingsContainer);
+// };
 
 async function profileListingTemplate() {
     const profileListing = await profileMethods.getProfileListing(profileName.name);
@@ -243,4 +243,3 @@ if (!isLoggedIn && path === "/listing/listing.html") {
     listingInfoSection.innerHTML = "";
     console.log(listingInfoSection);
 }
-console.log("yooolo");

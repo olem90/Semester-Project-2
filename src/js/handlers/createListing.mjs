@@ -16,10 +16,10 @@ export function createListingListener() {
                 
                 setTimeout(function routeHome() {
             {
-                window.location.replace("/profile/profilelistings/profilelistings.html");                  
+                window.location.href("/profile/profilelistings/profilelistings.html");                  
             }          
             },1000);
             }
         })
     }
-};
+}; 
