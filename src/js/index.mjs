@@ -67,7 +67,7 @@ if ( path === "/listing/listing.html" && isLoggedIn) {
     listeners.getListingInfo();
 }
 
-if ( path === "/profile/profileListings/specificProfileListing.html" || path === "/profile/profilelistings/specificprofilelisting.html") {
+if ( path === "/profile/profileListings/specificProfileListing.html" || path === "/profile/profilelistings/specificprofilelisting.html" || path === "/profile/profilelistings/specificprofilelisting") {
     profileListingTemplate();
 }
 
