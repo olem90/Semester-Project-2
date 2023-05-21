@@ -237,3 +237,4 @@ if (!isLoggedIn && path === "/listing/listing.html") {
     listingInfoSection.innerHTML = "";
     console.log(listingInfoSection);
 }
+console.log("yooolo")
