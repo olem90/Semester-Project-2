@@ -21,7 +21,7 @@ if ( path === "/profile/login/login.html" ) {
     listeners.loginFormListener();
 }
 
-if ( path === "/listing/create/createListing.html") {
+if ( path === "/listing/create/createListing.html" || path === "/listing/create/createlisting.html") {
     listeners.createListingListener();
 }
 
@@ -29,7 +29,7 @@ if ( path === "/profile/edit/edit.html") {
     listeners.updateProfileListener();
 }
 
-if ( path === "/listing/edit/editListing.html") {
+if ( path === "/listing/edit/editListing.html" || path === "/listing/edit/editlisting.html") {
     listeners.updateListingListener();
     listeners.removeListingListener();
 }
@@ -45,11 +45,11 @@ if( path === "/listing/popularListings.html" || "/listing/popularlistings.html")
 }
 
 if ( path === "/listing/newestListings.html" || path === "/listing/newestlistings") {
-    SortedByNewestTemplate();
+    //SortedByNewestTemplate();
     SortedByNewestSearchFilter();
 }
 
-if ( path === "/profile/profileListings/profileListings.html"){
+if ( path === "/profile/profileListings/profileListings.html" || path === "/profile/profilelistings/profilelistings.html"){
     profileListingsTemplate();
     profileListingsSearchFilter();
 }
@@ -67,7 +67,7 @@ if ( path === "/listing/listing.html" && isLoggedIn) {
     listeners.getListingInfo();
 }
 
-if ( path === "/profile/profileListings/specificProfileListing.html") {
+if ( path === "/profile/profileListings/specificProfileListing.html" || path === "/profile/profilelistings/specificprofilelisting.html") {
     profileListingTemplate();
 }
 
@@ -101,11 +101,11 @@ async function profileListingTemplate() {
     templates.renderListingTemplate(listing, listingContainer);
  };
 
- async function SortedByNewestTemplate() {
-    const listing = await listingMethods.getActiveListings();
-    const listingsContainer = document.querySelector("#newestListingsContainer");
-    templates.renderListingTemplate(listing, listingsContainer);
- };
+//  async function SortedByNewestTemplate() {
+//     const listing = await listingMethods.getActiveListings();
+//     const listingsContainer = document.querySelector("#newestListingsContainer");
+//     templates.renderListingTemplate(listing, listingsContainer);
+//  };
 
  async function listingsSearchFilter() {
     const listings = await listingMethods.getActiveListings();
