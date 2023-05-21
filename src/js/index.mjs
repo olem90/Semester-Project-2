@@ -50,7 +50,7 @@ if ( path === "/listing/newestListings.html" || path === "/listing/newestlisting
 }
 
 if ( path === "/profile/profileListings/profileListings.html" || path === "/profile/profilelistings/profilelistings.html" || path === "/profile/profilelistings/profilelistings"){
-    profileListingsTemplate();
+    //profileListingsTemplate();
     profileListingsSearchFilter();
 }
 
