@@ -48,9 +48,10 @@ export function listingsTemplate(listingData) {
     return clickable;
 }
 export function renderListingTemplates(listingDataList, parent) {
-    parent.append(...listingDataList.map(data => { 
-       return listingsTemplate(data)
-    }))
+    if (parent) {
+        parent.append(...listingDataList.map(data => { 
+            return listingsTemplate(data)
+        }))
+    }
 }
 
-   

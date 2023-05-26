@@ -165,12 +165,15 @@ async function listingsSearchFilter() {
 
     const searchBar = document.querySelector("#searchInput");
     const searchForm = document.querySelector(".searchBar");
-
-    searchBar.addEventListener('input', (event) => listeners.filterPopularListings(event));
+    if (searchBar) {
+        searchBar.addEventListener('input', (event) => listeners.filterPopularListings(event));
     searchForm.addEventListener("submit", (event) => {
         event.preventDefault(); 
         listeners.filterPopularListings(event);
   })
+
+    }
+    
  };
  const accountContainer = document.querySelector("#accountContainer");
 
