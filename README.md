@@ -1,6 +1,6 @@
 # BidBay - Semester Project 2
 
-![project-image](/src/SemesterProject2.png)
+![project-image](/src/)
 
 ## Description
  This project focuses on developing an auction website where users can
