@@ -22,6 +22,7 @@
 ## Getting Started
 ### Installing
 1. Clone the repo:
+   
    ```bash
    gh repo clone olem90/Semester-Project-2
 
