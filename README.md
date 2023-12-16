@@ -26,3 +26,12 @@
 ```bash
 gh repo clone olem90/Semester-Project-2
 
+2. Install the dependencies
+
+```bash
+npm install
+
+### Running
+```bash
+npm run 
+
