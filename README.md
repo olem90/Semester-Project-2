@@ -25,6 +25,7 @@
    
 ```bash
 gh repo clone olem90/Semester-Project-2
+```
 
 2. Install the dependencies
 
