@@ -36,3 +36,5 @@ npm install
 ### Running
 Open the index.html file with live server
 
+### Contact
+
