@@ -14,5 +14,6 @@
  activities for registered users.
 
  ## Built With
- - React.js
- - Styled Components
+ - 
+ - Bootstrap
+ - Scss
