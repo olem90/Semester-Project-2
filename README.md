@@ -31,8 +31,8 @@ gh repo clone olem90/Semester-Project-2
 
 ```bash
 npm install
+```
 
 ### Running
-```bash
-npm run 
+Open the index.html file with live server
 
