@@ -14,6 +14,10 @@
  activities for registered users.
 
  ## Built With
- - 
+ - HTML5
+ - JavaScript
  - Bootstrap
  - Scss
+
+## Getting Started
+### Installing
