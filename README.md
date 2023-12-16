@@ -37,4 +37,5 @@ npm install
 Open the index.html file with live server
 
 ### Contact
+- [My LinkedIn Profile]([https://www.linkedin.com/in/your-profile](https://www.linkedin.com/in/ole-marius-sand%C3%B8-rognan-923202249/)https://www.linkedin.com/in/ole-marius-sand%C3%B8-rognan-923202249/)
 
