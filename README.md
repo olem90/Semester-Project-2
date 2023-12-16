@@ -21,3 +21,6 @@
 
 ## Getting Started
 ### Installing
+1. Clone the repo:
+   
+
